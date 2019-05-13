@@ -578,6 +578,14 @@ note: n'attendez pas!
 
 --
 
+## Quand c'est sérieux
+
+* kiné
+* infiltrations
+* chirurgie
+
+--
+
 ### Plus d'information
 
 Les brochure de l'INRS:
