@@ -1,4 +1,4 @@
-# Mechanical Keyboards & Ergonomics
+# Claviers Mécaniques & Ergonomie
 
 ![Keyboard](/resources/keyboards.jpeg) <!-- .element class=".stretch" -->
 
@@ -6,30 +6,31 @@
 
 ---
 
-# What's a keyboard anyway?
+# Qu'est-ce qu'un clavier, finalement ?
 
 
 
 --
 
-## Inside a keyboard
+## A l'intérieur d'un clavier
 
-* matrix of switches
-* plate
-* case
-* controller
-* keys
+* matrice de switchs
+* plaque
+* boitier
+* controleur
+* touches
+* (leste)
 
 --
 
 ### Enter the matrix
 
-* cricuit board connecting the switches in rows and columns
-* switches are soldered to it
+* circuit imprimé connectant les switchs en ligne et colonnes
+* les switchs sont soudés dessus
 
 --
 
-### Scanning
+### Matrix scanning
 
 ![matrix](resources/matrix.png) <!-- .element width="75%" -->
 
@@ -41,11 +42,11 @@
 
 --
 
-## The plate
+## La plaque
 
-* switches are clipsed on it
-* adds rigidity to the keyboard
-* usually stainless steel or aluminium but also PC, carbon fiber
+* les switchs sont clipsés dessus
+* apporte de la rigidité (ou souplesse :)
+* inox, aluminium mais aussi PC, fibre de carbonne
 
 <figure>
 ![plate](resources/plate.jpeg) <!-- .element width="45%" -->
@@ -54,32 +55,32 @@
 
 --
 
-## The controller
+## Le controlleur
 
-* nowadays: a microcontroller, same as the Arduino
-* running a specific firmware (proprietary, QMK, TMK)
+* maintenant: microcontrolleur (comme les arduino)
+* firmware dédié (proprietaire ou Open Source: QMK, TMK)
 
 ![controller](resources/controller.jpg) <!-- .element width="65%" -->
 
 --
 
-## The case
+## Le boitier
 
-* usually plastic
-* high end custom keyboards in aluminium
-* optional weight for better sound
+* Plastique (ABS)
+* Kustoms et haut de gamme: aluminium usiné
+* leste optionnel (laiton): améliore le son et la stabilité
 
 --
 
-## Switches
+## Switchs
 
-Not your average electrical switch...
+Fonctionne comme un interrupteur électrique, mais c'est un petit peu plus que ça...
 
 --
 
 ### Buckling Spring
 
-* the ancestor
+* l'ancestre
 
 <figure>
 ![Buckling spring](resources/buckling-spring.gif) <!-- .element width="30%" -->
@@ -99,8 +100,7 @@ Not your average electrical switch...
 
 ### Electro capacitive
 
-
-* the rolls of tactile switches
+* la rolls des switchs tactiles
 
 <figure>
 ![topre](resources/topre.png)
@@ -112,11 +112,11 @@ Not your average electrical switch...
 ### Cherry MX & Clones
 
 * 3 classes
-  * Linear
-  * Tactile
+  * Lineaires
+  * Tactiles
   * Clicky
-* different spring force (color code), level of actuation
-* about 100 different switch types on the market
+* ressort de differente force (couleur), niveau de déclenchement
+* environ 100 switchs différents sur le marché
 
 --
 
@@ -131,9 +131,9 @@ Not your average electrical switch...
 
 ### Cherry MX & Clones
 
-* modding
-* Frankenswitches: Invyrr Holy Panda
-* Lubrication
+* modiifications
+* frankenswitches: Invyrr Holy Panda
+* lubrification (son, confort)
 
 <figure>
 ![holy panda](resources/holypanda.jpg)
@@ -144,9 +144,9 @@ Not your average electrical switch...
 
 ### Alps
 
-* defunct, highly seeked
-* prone to dirtyness
-* used in Apple Extended Keyboards
+* plus fabriqués, très recherché
+* se salissent vite
+* utilisé dans les Apple Extended Keyboards (90s)
 
 <figure>
 ![Alps](resources/alps.jpg) <!-- .element width="50%" -->
@@ -159,14 +159,14 @@ Not your average electrical switch...
 
 --
 
-### Material
+### Materiaux
 
-* ABS (durable, subject to shining)
+* ABS (durable, mais deviennent brillant, peuvent jaunir)
 * PBT (extra durable)
 
 --
 
-### Engraving
+### Lettrage
 
 * laser etching
 * pad printing
@@ -177,22 +177,22 @@ note: dyesub heats the surface and colour melts into the plastic to tint it, it'
 
 --
 
-### Profiles
+### Profils
 
 ![profiles](resources/profile.jpg)
 
 --
 
-### Manufacturers
+### Fabricants
 
-* GMK (ex Cherry)
+* GMK (ex Cherry, historique)
 * SP (SA, DSA profile)
-* ePBT (cherry clones)
-* tons of Chinese factories
+* ePBT (clones de Cherry, Chinois)
+* beaucoup de petites usines Chinoises
 
 --
 
-### Some keysets
+### Des exemples
 
 ![e1](resources/example1.png) <!-- .element width="30%" -->
 ![e2](resources/example2.png) <!-- .element width="30%" -->
@@ -202,7 +202,14 @@ note: dyesub heats the surface and colour melts into the plastic to tint it, it'
 
 ---
 
-# Different keyboards
+# Touches Artisans
+
+![a1](resources/artisan1.jpg) <!-- .element width="49%" -->
+![a2](resources/artisan2.jpg) <!-- .element width="48%" -->
+
+---
+
+# Des claviers variés!
 
 --
 
@@ -277,6 +284,21 @@ note: M60
 <figcaption>&copy;Pearl Boards</figcaption>
 </figure>
 
+note: pearl
+
+--
+
+## Ergonomiques
+
+<figure>
+![TGR Alice](resources/ergo1-alice.jpg) <!-- .element width="35%" -->
+<figcaption>&copy;&nbsp;u/dantambok</figcaption>
+</figure>
+<figure>
+![Ergodox](resources/ergodox.jpg) <!-- .element width="35%" -->
+<figcaption>&copy;&nbsp;Brice Figureau</figcaption>
+</figure>
+
 ---
 
 # Layouts
@@ -289,7 +311,7 @@ note: M60
 
 --
 
-## ISO: Country specific
+## ISO: par pays
 
 ![ISO FR](resources/iso.png)
 
@@ -303,8 +325,8 @@ note: M60
 
 ## Dvorak & Colemak
 
-![dvorak](resources/dvorak.png) <!-- .element width="55%" -->
-![colemak](resources/colemak.png) <!-- .element width="55%" -->
+![dvorak](resources/dvorak.png) <!-- .element width="75%" -->
+![colemak](resources/colemak.png) <!-- .element width="75%" -->
 
 note:
 * qwerty is not optimal
@@ -313,7 +335,17 @@ note:
 
 --
 
-## Staggered vs ortholinear
+## BéPO
+
+![bepo](resources/bepo.png) <!-- .element width="100%" -->
+
+note:
+* couvre tous les caractères européen
+* organisé par frequence Fr
+
+--
+
+## Echelonné vs ortholineaire
 
 <figure>
 ![ortho](resources/ortho.jpg) <!-- .element width="75%" -->
@@ -325,23 +357,24 @@ note:
 
 ---
 
-# Typing correctly
+# Comment taper ?
 
 --
 
 ## Touch typing vs Hunt & Peck
 
-* Do not look at keybord
-* Muscle memory
-* All fingers are used
+* sans regarder les touches
+* mémoire musculaire
+* *tous* les doigts servent
+* vitesse et précision accrue
 
 --
 
-## Learn to touch type
+## Apprendre le touch-typing
 
-* start slowly
-* increase accuracy then speed
-* takes roughly 2 weeks
+* démarrer lentement
+* travailler sur la précision puis sur la vitesse
+* 40/50 WPM en 2 semaines
 
 https://www.typingclub.com/
 
@@ -353,7 +386,7 @@ https://www.typing.com/
 
 --
 
-## The right fingers
+## Les bons doigts
 
 <figure>
 ![fingers](resources/touch-typing.svg)
@@ -362,7 +395,7 @@ https://www.typing.com/
 
 ---
 
-# Community
+# La communauté
 
 --
 
@@ -371,13 +404,13 @@ https://www.typing.com/
 * Geekhack: https://geekhack.org/index.php
 * Reddit: https://www.reddit.com/r/MechanicalKeyboards/ 
 * Keebtalk: https://www.keebtalk.com/
-* Tons of Discord servers
+* beaucoup de serveurs Discord (par région, fournisseur, etc)
 
 --
 
 ## Group-Buy
 
-* kustom keyboards
+* clavier kustoms/petites séries
 * keysets
 * artisans
 
@@ -385,48 +418,57 @@ https://www.typing.com/
 
 ## Mechmarket
 
-Due to the scarity of keysets, custom keyboards, artisans the after market is very dynamic.
+Les productions de keyset, clavier custom ou artisan étant insuffisantes, le marché secondaire est très dynamique (reddit, discord).
+
+Beaucoup d'achat/revente et augmentation inconsidéré des prix
 
 note: some earlier Korean kustoms like the otd 365 are selling there for more +3k
 
+---
+
+# Travailler sur ordinateur
+
+Danger pour votre santé !
 
 ---
 
-# Working on a computer
+## Fatigue oculaire (asthénopie)
 
-Your life can be at risk !
-
----
-
-## Visual Fatigue Syndrom
-
-> Eye strain, also known as asthenopia is an eye condition that manifests through nonspecific symptoms such as fatigue, pain in or around the eyes, blurred vision, headache, and occasional double vision
+> La fatigue oculaire se manifeste par des symptômes non spécifiques tels que la fatigue, des douleurs dans ou autour des yeux, vision floue, des maux de tête et, occasionnellement, une vision double.
 
 note: quality of light, artificial light, screen settings can help, watch out low quality LCD with PWM backlight, mate screen
 
 --
 
-## Visual Fatigue Syndrom
+## Fatigue oculaire
 
-* check screen settings
-* use a matte screen (beware of laptop glass reflection)
-* use artificial light (sunlight is not constant throughout the day)
-* prefer light display to dark mode (less reflection, ease transition with paper documents)
-* screen should be perpendicular to windows
-* artificial light (direct, but not above the workplace or indirect through ceiling reflections)
-* additional lamp for working on paper
-
----
-
-## Repetitive Strain Injury
-
-> Injury to the musculoskeletal and nervous systems that may be caused by repetitive tasks, forceful exertions, vibrations, mechanical compression, or sustained or awkward positions
-
-https://en.wikipedia.org/wiki/Repetitive_strain_injury
+* crispation des muscles cillaires (modificateurs de la forme du cristallin)
+* peut-être révélateur de troubles sous-jacents (myopie, astigmatisme, etc)
+* soulager en restant dans le noir jusqu'au relachement des muscles
 
 --
 
-## Repetitive Strain Injury
+## Fatigue oculaire
+
+* faire des pauses (regarder au loin par ex)
+* attention aux réglages de l'écran (luminosité) et aux écrans basse qualité
+* écran mat (attention aux portables avec écran réfléchissant)
+* utiliser une source de lumière artificielle (lumière solaire inconstante)
+* placer l'écran perpendiculairement aux fenêtres
+* lampe de bureau en complément pour les papiers
+* préférez le mode "light" au mode "dark" (moins de réflection, moins de fatigue entre document papier et écran)
+
+---
+
+## Troubles Musculo-squeletiques (TMS)
+
+> Blessures des muscles, tendons, nerfs et squelette causées par des taches répétitives, des efforts soutenus, des vibrations, des compressions mécaniques ou par des positions anormales ou soutenues dans le temps.
+
+https://fr.wikipedia.org/wiki/Trouble_musculosquelettique
+
+--
+
+## Troubles Musculo-squeletiques
 
 <figure>
 ![RSI](resources/rsi.jpg) <!-- .element width="50%" -->
@@ -435,7 +477,16 @@ https://en.wikipedia.org/wiki/Repetitive_strain_injury
 
 --
 
-## The Right Position
+## Troubles Musculo-squeletiques
+
+* peuvent être renforcés par le stress
+* affectent principalement: doigts, poignets, coudes, nuque, ,bas du dos
+* Syndrome du Canal Carpien
+* Tendinite, Tendinosynovite, Syndrome de Quiervain
+
+--
+
+## Prendre la bonne position
 
 <figure>
 ![right position](resources/workplace-ergo.png) <!-- .element width="55%" -->
@@ -443,29 +494,31 @@ https://en.wikipedia.org/wiki/Repetitive_strain_injury
 
 --
 
-## What if I have RSI
+## Que faire si je suis atteind ?
 
 note: stress is an aggravating factor
 
 --
 
-### Type with a neutral position
+### Taper en position neutre
 
-* floating wrists when typing
-* beware of wrists rest
+* poignets flottants
+* attention au reposes-poignets
+* en dernier ressort porter des gants spéciaux
 
 --
 
-### Use a different keyboard
+### Changer de clavier ou layout
 
-* mechanical FTW
-* ergonomic (ergodox, etc)
+* clavier mécanique FTW
+* ergonomique (ergodox, kinesis, etc)
+* layout BéPO, Dvorak, Colemak
 
 note: ergonomic keyboards allow for a different hand placement with less constraints
 
 --
 
-### Use a different mouse
+### Changer de souris
 
 <figure>
 ![vertical mouse](resources/logitech-vertical-mouse.jpg) <!-- .element width="55%" -->
@@ -474,7 +527,7 @@ note: ergonomic keyboards allow for a different hand placement with less constra
 
 --
 
-### Or a trackball
+### Essayer le trackball
 
 <figure>
 ![trackball](resources/logitech-trackball.jpg)
@@ -483,7 +536,7 @@ note: ergonomic keyboards allow for a different hand placement with less constra
 
 --
 
-### Or a trackpad
+### Ou le trackpad
 
 <figure>
 ![trackpad](resources/apple-trackpad.jpeg) <!-- .element width="55%" -->
@@ -492,46 +545,49 @@ note: ergonomic keyboards allow for a different hand placement with less constra
 
 --
 
-### Take Regular Breaks
+### Faire des pause régulières
 
-* Recommendation is 5 min every hour, or 15 min every 2h
-* look "behind" the screen every 20 min
+* La recommendation: 5 min toutes les heures, ou 15 min toutes les 2h
+* regarder au loin toutes les 20 min
 * Pomodoro
+* rester devant son écran n'est pas une pause
 
 note: during the break, walk a bit, go hydrate, stop starring at the screen
 
 --
 
-### Exercise
+### Faire de l'exercice
 
 note: unfortunately obesity is a risk factor
 
 --
 
-### Ask your CHSCT
+### Demander au CHSCT
+
+...et lire les brochures de l'INRS
 
 note: they are trained about this and can suggest workplace modifications
 
 --
 
-### Go see a doctor from Médecine du Travail
+### Rencontrer la Médecine du Travail
 
-* You can ask to see the doctor at any time (free)
+En tant que salarié vous avez le droit de consulter la médecine du travail. L'entretien est confidentiel, et le médecin peut venir voir le poste de travail et demander à l'employeur des ajustements.
 
-note: the longer you wait the worst it will be
+note: n'attendez pas!
 
 --
 
-### More information
+### Plus d'information
 
-See the INRS leaflets:
+Les brochure de l'INRS:
 
 http://www.inrs.fr/risques/travail-ecran/publications-outils-liens.html
 
-INSERM documentation:
+La documentation INSERM:
 
 https://intranet.inserm.fr/securite-et-prevention/sante-securite/Documents%20externes/3_PreventionRisques/7_TroublesMusculo/Inserm_DrhBCPR_TravailEcran_Guide.pdf
 
-Worksafe Quebec:
+Travail Sécutitaire Quebec:
 
 https://www.travailsecuritairenb.ca/docs/officefrdist.pdf
