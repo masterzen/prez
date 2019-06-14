@@ -6,9 +6,89 @@
 
 ---
 
+# Une (brêve) histoire
+
+--
+
+## Premières machines à écrire
+
+<figure>
+![hansen ball](resources/hansenball.jpg) <!-- .element width="50%" -->
+<figcaption>Hansen ball - 1870</figcaption>
+</figure>
+
+note: beaucoup d'invention début 19e, mais pas encore de commercialisation
+
+--
+
+## Industrialisation des machines à écrire
+
+<figure>
+![remington 1](resources/sholesglidden.png) <!-- .element width="30%" -->
+<figcaption>Sholes & Glidden - Remington 1 - 1875</figcaption>
+</figure>
+
+note: première machine commerciale 1864, premier succès la Sholes & Glidden en 1875 (premiere avec un clavier QWERTY)
+invention du SHIFT, puis DOUBLE SHIFT (3 caractères par touches)
+
+--
+
+## Machines électriques
+
+<figure>
+![selectric I](resources/selectric1.jpg) <!-- .element width="50%" -->
+<figcaption>IBM Selectric I - 1961</figcaption>
+</figure>
+
+note: première machine commerciale IBM Model 01 en 1935, puis le succès de la selectric, machine à boule, vendue jusque dans les années 80.
+
+--
+
+## Le teletype
+
+<figure>
+![teletype](resources/teletype.jpg) <!-- .element width="35%" -->
+<figcaption>Teletype ASR 33 - By AlisonW [<a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>]</figcaption>
+</figure>
+
+note: teletype utilisé en telegraphie (morse), puis adapté aux ordinateurs (Bell MULTICS dans les 60s), soit en direct soit avec cartes perforées
+
+--
+
+## Le terminal video
+
+<figure>
+![VT52](resources/vt52.jpg) <!-- .element width="50%" -->
+<figcaption>DEC VT52 - By <a href="//commons.wikimedia.org/wiki/User:ClickRick" title="User:ClickRick">ClickRick</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=6693682">Link</a></figcaption>
+</figure>
+
+note: Datapoint 3300, puis DEC VT52 et enfin le fameux VT100
+
+--
+
+## Le micro-ordinateur
+
+<figure>
+![c64](resources/c64.jpg) <!-- .element width="50%" -->
+<figcaption>Commodore 64 - 1982, By <a href="//commons.wikimedia.org/wiki/User:Evan-Amos" title="User:Evan-Amos">Evan-Amos</a> - <span class="int-own-work" lang="en">Own work</span>, Public Domain, <a href="https://commons.wikimedia.org/w/index.php?curid=17414881">Link</a></figcaption>
+</figure>
+
+note: fin des 70s et 80s, révolution du micro-ordinateur
+
+--
+
+## Le clavier moderne
+
+<figure>
+![ibm model m](resources/ibm-m.png) <!-- .element width="65%" -->
+<figcaption>IBM Model M - 1986, By <a href="//commons.wikimedia.org/w/index.php?title=User:Raymangold22&amp;action=edit&amp;redlink=1" class="new" title="User:Raymangold22">Raymangold22</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" title="Creative Commons Zero, Public Domain Dedication">CC0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=37410391">Link</a></figcaption>
+</figure>
+
+note: fin des 70s et 80s, révolution du micro-ordinateur
+
+---
+
 # Qu'est-ce qu'un clavier, finalement ?
-
-
 
 --
 
@@ -25,7 +105,7 @@
 
 ### Enter the matrix
 
-* circuit imprimé connectant les switchs en ligne et colonnes
+* circuit imprimé connectant les switchs en lignes et colonnes
 * les switchs sont soudés dessus
 
 --
@@ -50,7 +130,7 @@
 
 <figure>
 ![plate](resources/plate.jpeg) <!-- .element width="45%" -->
-<figcaption>&copy;Gon</figcaption>
+<figcaption>&copy;&nbsp;Gon</figcaption>
 </figure>
 
 --
@@ -84,7 +164,7 @@ Fonctionne comme un interrupteur électrique, mais c'est un petit peu plus que �
 
 <figure>
 ![Buckling spring](resources/buckling-spring.gif) <!-- .element width="30%" -->
-<figcaption>By <a href="//commons.wikimedia.org/w/index.php?title=User:Shaddim&amp;action=edit&amp;redlink=1" class="new" title="User:Shaddim (page does not exist)">Shaddim</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=30568410">Link</a></figcaption>
+<figcaption>By <a href="//commons.wikimedia.org/w/index.php?title=User:Shaddim&amp;action=edit&amp;redlink=1" class="new" title="User:Shaddim">Shaddim</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=30568410">Link</a></figcaption>
 </figure>
 
 --
@@ -93,30 +173,30 @@ Fonctionne comme un interrupteur électrique, mais c'est un petit peu plus que �
 
 <figure>
 ![membrane](resources/membrane.jpg) <!-- .element width="50%" -->
-<figcaption>By <a href="https://en.wikipedia.org/wiki/User:Asiir" class="extiw" title="en:User:Asiir">Asiir</a> 16:32, 13 February 2007 (UTC) - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by-sa/2.5" title="Creative Commons Attribution-Share Alike 2.5">CC BY-SA 2.5</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=68089609">Link</a></figcaption>
+<figcaption>By <a href="https://en.wikipedia.org/wiki/User:Asiir" class="extiw" title="en:User:Asiir">Asiir</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by-sa/2.5" title="Creative Commons Attribution-Share Alike 2.5">CC BY-SA 2.5</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=68089609">Link</a></figcaption>
 </figure>
 
 --
 
 ### Electro capacitive
 
-* la rolls des switchs tactiles
+la Rolls des switchs tactiles
 
 <figure>
 ![topre](resources/topre.png)
-<figcaption>&copy;Topre</figcaption>
+<figcaption>&copy;&nbsp;Topre</figcaption>
 </figure>
 
 --
 
 ### Cherry MX & Clones
 
-* 3 classes
-  * Lineaires
+* 3 types
+  * Linéaires
   * Tactiles
   * Clicky
-* ressort de differente force (couleur), niveau de déclenchement
-* environ 100 switchs différents sur le marché
+* ressorts de differentes forces (couleur), niveaux de déclenchement
+* environ 100+ switchs différents sur le marché
 
 --
 
@@ -124,33 +204,33 @@ Fonctionne comme un interrupteur électrique, mais c'est un petit peu plus que �
 
 <figure>
 ![MX Switchs](/resources/switches.gif)
-<figcaption>&copy;<a href="https://steelseries.com/blog/gaming-keyboard-mechanical-switches-44">SteelSeries</a></figcaption>
+<figcaption>&copy;&nbsp;<a href="https://steelseries.com/blog/gaming-keyboard-mechanical-switches-44">SteelSeries</a></figcaption>
 </figure>
 
 --
 
 ### Cherry MX & Clones
 
-* modiifications
+* moding
 * frankenswitches: Invyrr Holy Panda
 * lubrification (son, confort)
 
 <figure>
 ![holy panda](resources/holypanda.jpg)
-<figcaption>&copy;<a href="https://massdrop.com">Massdrop</a></figcaption>
+<figcaption>&copy;&nbsp;<a href="https://massdrop.com">Massdrop</a></figcaption>
 </figure>
 
 --
 
 ### Alps
 
-* plus fabriqués, très recherché
+* plus fabriqués mais très recherchés
 * se salissent vite
-* utilisé dans les Apple Extended Keyboards (90s)
+* utilisé dans les Apple Extended Keyboards (80s-90s)
 
 <figure>
 ![Alps](resources/alps.jpg) <!-- .element width="50%" -->
-<figcaption><a title="Daniel beardsmore [CC0], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Alps_SKCM_Orange_--_fully_disassembled.jpg">Daniel beardsmore [CC0], via Wikimedia Commons</a></figcaption>
+<figcaption><a title="Daniel beardsmore [CC0], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Alps_SKCM_Orange_--_fully_disassembled.jpg">Daniel beardsmore [CC0]</a></figcaption>
 </figure>
 
 --
@@ -202,7 +282,7 @@ note: dyesub heats the surface and colour melts into the plastic to tint it, it'
 
 ---
 
-# Touches Artisans
+# Artisans
 
 ![a1](resources/artisan1.jpg) <!-- .element width="49%" -->
 ![a2](resources/artisan2.jpg) <!-- .element width="48%" -->
@@ -226,7 +306,7 @@ note: dyesub heats the surface and colour melts into the plastic to tint it, it'
 
 <figure>
 ![TKL](resources/tkl.jpg) <!-- .element width="90%" -->
-<figcaption>&copy;u/b7ad<figcaption>
+<figcaption>&copy;&nbsp;u/b7ad<figcaption>
 </figure>
 
 note: OTD 365.2
@@ -237,7 +317,7 @@ note: OTD 365.2
 
 <figure>
 ![1800](resources/1800.jpg) <!-- .element width="80%" -->
-<figcaption>&copy;u/diiiP</figcaption>
+<figcaption>&copy;&nbsp;u/diiiP</figcaption>
 </figure>
 
 note: TX CP
@@ -248,7 +328,7 @@ note: TX CP
 
 <figure>
 ![75%](resources/75.jpg) <!-- .element width="65%" -->
-<figcaption>&copy;Exclusive Designs</figcaption>
+<figcaption>&copy;&nbsp;Exclusive Designs</figcaption>
 </figure>
 
 note: E7-V1
@@ -259,7 +339,7 @@ note: E7-V1
 
 <figure>
 ![65%](resources/65.jpeg) <!-- .element width="75%" -->
-<figcaption>&copy;Yutksi</figcaption>
+<figcaption>&copy;&nbsp;Yutksi</figcaption>
 </figure>
 
 note: TGR 910
@@ -270,7 +350,7 @@ note: TGR 910
 
 <figure>
 ![60%](resources/60.jpeg) <!-- .element width="75%" -->
-<figcaption>&copy;Rama Works</figcaption>
+<figcaption>&copy;&nbsp;Rama Works</figcaption>
 </figure>
 
 note: M60
@@ -281,7 +361,7 @@ note: M60
 
 <figure>
 ![40%](resources/40.jpeg) <!-- .element width="65%" -->
-<figcaption>&copy;Pearl Boards</figcaption>
+<figcaption>&copy;&nbsp;Pearl Boards</figcaption>
 </figure>
 
 note: pearl
@@ -418,9 +498,9 @@ https://www.typing.com/
 
 ## Mechmarket
 
-Les productions de keyset, clavier custom ou artisan étant insuffisantes, le marché secondaire est très dynamique (reddit, discord).
+Les productions de keyset, clavier custom ou artisan étant insuffisantes, le marché secondaire est très dynamique (reddit, discord).<!-- .element: style="text-align: left;"> -->
 
-Beaucoup d'achat/revente et augmentation inconsidéré des prix
+Beaucoup d'achat/revente et augmentation inconsidéré des prix<!-- .element: style="text-align: left;"> -->
 
 note: some earlier Korean kustoms like the otd 365 are selling there for more +3k
 
@@ -480,9 +560,11 @@ https://fr.wikipedia.org/wiki/Trouble_musculosquelettique
 ## Troubles Musculo-squeletiques
 
 * peuvent être renforcés par le stress
-* affectent principalement: doigts, poignets, coudes, nuque, ,bas du dos
+* affectent principalement: doigts, poignets, coudes, nuque, bas du dos
 * Syndrome du Canal Carpien
 * Tendinite, Tendinosynovite, Syndrome de Quiervain
+
+note: Tendinosynovite = tendinite avec inflamation de la gaine du tendon, canal carpien = axe de passage tendon au milieu du poignet, quiervain: tendinosynovite du pouce
 
 --
 
@@ -503,7 +585,7 @@ note: stress is an aggravating factor
 ### Taper en position neutre
 
 * poignets flottants
-* attention au reposes-poignets
+* attention au repose-poignets
 * en dernier ressort porter des gants spéciaux
 
 --
@@ -599,3 +681,7 @@ https://intranet.inserm.fr/securite-et-prevention/sante-securite/Documents%20ext
 Travail Sécutitaire Quebec:
 
 https://www.travailsecuritairenb.ca/docs/officefrdist.pdf
+
+---
+
+# Questions ?
