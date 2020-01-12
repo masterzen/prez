@@ -17,18 +17,18 @@
 <figcaption>Hansen ball - 1870</figcaption>
 </figure>
 
-note: beaucoup d'invention début 19e, mais pas encore de commercialisation
+note: beaucoup d'invention US/EU dès 1714, puis foison début 19e mais pas de commercialisation, juste des prototypes (souvent appelés tachygraphes/tachytypes). 1850 invention du ruban encreur. Apparition aussi de machine pour le braille. La première commercialisation: 1870 Rasmus Malling-Hansen et sa Writing Ball. 
 
 --
 
 ## Industrialisation des machines à écrire
 
-<figure>
+
+![brevet Sholes](resources/sholes-patent.jpg)  <!-- .element width="30%" -->
 ![remington 1](resources/sholesglidden.png) <!-- .element width="30%" -->
 <figcaption>Sholes & Glidden - Remington 1 - 1875</figcaption>
-</figure>
 
-note: première machine commerciale 1864, premier succès la Sholes & Glidden en 1875 (premiere avec un clavier QWERTY)
+note: premier succès la Sholes & Glidden en 1873 (premiere avec un clavier QWERTY) commercialisation de Remington basée sur le prototype de 1865 de Christopher Latham Sholes.
 invention du SHIFT, puis DOUBLE SHIFT (3 caractères par touches)
 
 --
@@ -40,7 +40,7 @@ invention du SHIFT, puis DOUBLE SHIFT (3 caractères par touches)
 <figcaption>IBM Selectric I - 1961</figcaption>
 </figure>
 
-note: première machine commerciale IBM Model 01 en 1935, puis le succès de la selectric, machine à boule, vendue jusque dans les années 80.
+note: première machine commerciale IBM Model 01 en 1935, puis le succès de la selectric, machine à boule, vendue jusque dans les années 80. La boule permet de changer de police, de langue. Idée prise à la Blickensderfer (fin 19e). L'impression est plus silencieuse car sous le capot (on n'a plus besoin de dejammer la machine).
 
 --
 
@@ -51,7 +51,7 @@ note: première machine commerciale IBM Model 01 en 1935, puis le succès de la 
 <figcaption>Teletype ASR 33 - By AlisonW [<a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>]</figcaption>
 </figure>
 
-note: teletype utilisé en telegraphie (morse), puis adapté aux ordinateurs (Bell MULTICS dans les 60s), soit en direct soit avec cartes perforées
+note: teletype (TTY) utilisé en télégraphie (morse), puis adapté aux ordinateurs (Bell MULTICS dans les 60s), soit en direct soit avec cartes perforées.
 
 --
 
@@ -62,7 +62,7 @@ note: teletype utilisé en telegraphie (morse), puis adapté aux ordinateurs (Be
 <figcaption>DEC VT52 - By <a href="//commons.wikimedia.org/wiki/User:ClickRick" title="User:ClickRick">ClickRick</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=6693682">Link</a></figcaption>
 </figure>
 
-note: Datapoint 3300, puis DEC VT52 et enfin le fameux VT100
+note: munis d'écrans. Reliés par ports séries à l'ordinateur central. Ex Datapoint 3300, puis DEC VT52 et enfin le fameux VT100.
 
 --
 
@@ -94,7 +94,7 @@ note: au cours des 80s, commercialisation du Personnal Computer (PC)
 
 ## A l'intérieur d'un clavier
 
-* matrice d'interrupters ("switchs")
+* matrice d'interrupteurs ("switchs")
 * plaque
 * boitier
 * controleur
@@ -176,6 +176,8 @@ Fonctionne comme un interrupteur électrique, mais c'est un petit peu plus que �
 
 ![MX Clear](resources/mx-clear-switch.jpg) <!-- .element width="50%" -->
 
+note: Cherry marque allemande, fabrique des claviers depuis 1973 (toujours en business). A l'origine fabriquant de pièces mécaniques automobiles.
+
 --
 
 ### Cherry MX & Clones
@@ -184,6 +186,13 @@ Fonctionne comme un interrupteur électrique, mais c'est un petit peu plus que �
 ![MX Switchs](/resources/switches2.gif)
 <figcaption>&copy;&nbsp;<a href="https://steelseries.com/blog/gaming-keyboard-mechanical-switches-44">SteelSeries</a></figcaption>
 </figure>
+
+--
+
+### Cherry MX & Clones
+
+![Linear - MX Black](/resources/actuation-mx-black.png)  <!-- .element width="40%" -->
+![Tactile - MX Clear](/resources/actuation-mx-clear.png)  <!-- .element width="40%" -->
 
 --
 
@@ -200,7 +209,7 @@ Fonctionne comme un interrupteur électrique, mais c'est un petit peu plus que �
 
 --
 
-### Electro capacitive
+### Electro capacitif
 
 la Rolls des switchs tactiles
 
@@ -228,7 +237,9 @@ la Rolls des switchs tactiles
 
 --
 
-### Materiaux
+### Moulage
+
+Injection plastique:
 
 * ABS (durable, peut devenir brillant, peuvent jaunir)
 * PBT (très durable)
@@ -241,7 +252,7 @@ note: le matériau des touches influe sur les caractéristiques sonores du clavi
 
 --
 
-#### Laser etching && pad printing
+#### Laser etching & pad printing
 
 * gravure au laser:
   * charring
@@ -249,7 +260,7 @@ note: le matériau des touches influe sur les caractéristiques sonores du clavi
   * ablation
 * décalcomanies
 
-note: peu durable. etching: brulure superficielle (sur touches claires seulement, peu durables), foaming: formation de petites bulles proéminentes (sur touches foncées), ablatting: gravure profondes remplis de peintures. C'est ce qui est utilisé sur les claviers grand public
+note: peu durable. etching: brulure superficielle (sur touches claires seulement, peu durables), foaming: formation de petites bulles proéminentes (sur touches foncées), ablatting: gravure profondes remplis de peinture. C'est ce qui est utilisé sur les claviers grand public
 
 --
 
@@ -260,6 +271,8 @@ note: peu durable. etching: brulure superficielle (sur touches claires seulement
 <figcaption>PBT dye-sublimation</figcaption>
 </figure>
 
+note: procédé ou une teinte est transférée sur un papier transfert spécial, puis à la touche avec une presse à haute température (la teinte s'introduit dans le substrat au niveau moléculaire), résultat de huate qualité et durable. Mais pb surface très convexes (profils MT3)
+
 --
 
 #### double shot injection
@@ -269,7 +282,7 @@ note: peu durable. etching: brulure superficielle (sur touches claires seulement
 <figcaption>ABS double shot</figcaption>
 </figure>
 
-note: pad priting=décalcomanies, laser etching: laser creuse et brule le plastique, ou creusées et remplies de penture, dyesub chauffe la surface, et une teinte vient colorer le plastique localement (inusable), double-shot: moulage de 2 plastiques colorés au même moment (durable)
+note: double-shot: moulage de 2 plastiques colorés au même moment (durable)
 
 --
 
@@ -281,12 +294,12 @@ note: pad priting=décalcomanies, laser etching: laser creuse et brule le plasti
 
 ### Fabricants
 
-* GMK - Allemagnre (Cherry, historique)
+* GMK - Allemagne (Cherry, historique)
 * Signature Plastics - USA (SA, DSA, DSS, etc)
 * ePBT, JTK, Keyreative, MaxKey - Chine (clones de Cherry, KAT, KAM, SA,...)
 * beaucoup de petites usines Chinoises (Tao Hao, etc) (OEM, Cherry)
 
-note: GMK a racheté les machines à Cherry. Ils sont leader sur le marché des touches Cherry.
+note: tous ces fabricant produisent des touches compatibles MX. GMK a racheté les machines à Cherry. Ils sont leader sur le marché des touches profil Cherry.
 
 --
 
@@ -305,7 +318,7 @@ note: GMK a racheté les machines à Cherry. Ils sont leader sur le marché des 
 ![a1](resources/artisan1.jpg) <!-- .element width="49%" -->
 ![a2](resources/artisan2.jpg) <!-- .element width="48%" -->
 
-note: touches obtenues par moulage artisanaux de résines transparentes ou colorées, très petites quantités, et très chère (souvent attribuées par loteries). marché de la revente.
+note: touches obtenues par moulage artisanaux de résines transparentes ou colorées, très petites quantités, et très chère (souvent attribuées par loteries). collectionneurs & marché de la revente.
 
 ---
 
@@ -568,15 +581,31 @@ https://www.typing.com/
 
 Les productions de keyset, clavier custom ou artisan étant insuffisantes, le marché secondaire est très dynamique (reddit, discord).<!-- .element: style="text-align: left;"> -->
 
-Beaucoup d'achat/revente et augmentation inconsidéré des prix<!-- .element: style="text-align: left;"> -->
+Beaucoup d'achat/revente et augmentation inconsidérée des prix<!-- .element: style="text-align: left;"> -->
 
 note: some earlier Korean kustoms like the otd 365 are selling there for more +3k
 
 ---
 
-# Travailler sur ordinateur
+# Danger !
 
-Danger pour votre santé !
+* Troubles Musculo-squeletiques (TMS)
+
+---
+
+La bonne position
+
+<figure>
+![right position](resources/posture-moindre-inconfort.jpg) <!-- .element width="55%" -->
+</figure>
+
+---
+
+# Questions ?
+
+---
+
+# Bonus
 
 ---
 
