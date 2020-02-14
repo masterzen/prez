@@ -241,7 +241,7 @@ la Rolls des switchs tactiles
 
 Injection plastique:
 
-* ABS (durable, peut devenir brillant, peuvent jaunir)
+* ABS (durable, peut devenir brillant, peut jaunir)
 * PBT (très durable)
 
 note: le matériau des touches influe sur les caractéristiques sonores du clavier. ABS résonne plus, PBT assourdi le son.
@@ -260,7 +260,7 @@ note: le matériau des touches influe sur les caractéristiques sonores du clavi
   * ablation
 * décalcomanies
 
-note: peu durable. etching: brulure superficielle (sur touches claires seulement, peu durables), foaming: formation de petites bulles proéminentes (sur touches foncées), ablatting: gravure profondes remplis de peinture. C'est ce qui est utilisé sur les claviers grand public
+note: peu durable. etching: brulure superficielle (sur touches claires seulement, peu durables), foaming: formation de petites bulles proéminentes (sur touches foncées), ablatting: gravures profondes remplis de peinture. C'est ce qui est utilisé sur les claviers grand public
 
 --
 
@@ -560,7 +560,7 @@ https://www.typing.com/
 
 --
 
-## Forums
+## Online
 
 * Geekhack: https://geekhack.org/index.php
 * Reddit: https://www.reddit.com/r/MechanicalKeyboards/ 
@@ -569,11 +569,17 @@ https://www.typing.com/
 
 --
 
+## IRL: meetups !
+
+![meetup Paris](resources/meetup-Paris.jpg)
+
+--
+
 ## Group-Buy
 
 * clavier kustoms/petites séries
 * keysets
-* artisans
+* artisans (lotteries)
 
 --
 
