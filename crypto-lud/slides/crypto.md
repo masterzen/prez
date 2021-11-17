@@ -4,7 +4,14 @@
 
 ---
 
-## L'histoire d'Alice et Bob
+## Alice, Bob et Eve
+
+<figure>
+![Alice](resources/alice.png) <!-- .element width="20%" class="plain"-->
+![Bob](resources/bob.png) <!-- .element width="20%"  class="plain"-->
+![Eve](resources/eve.png) <!-- .element width="20%" class="plain" -->
+</figure>
+
 
 ---
 
@@ -15,7 +22,7 @@
 ## Protocole
 
 <figure>
-![Symmetric key protocol](resources/symmetric-key-protocol.svg) <!-- .element width="100%" class="plain" -->
+![Symmetric key protocol](resources/symmetric-key-protocol.svg) <!-- .element width="75%" class="plain" -->
 <figcaption>Symmetric key protocol</figcaption>
 </figure>
 
@@ -23,8 +30,8 @@
 
 ## Différents types d'algorithmes
 
-* flux
-* block
+* par flot
+* par block
 
 ---
 
@@ -71,7 +78,7 @@ endwhile
 
 ### Chiffrement par bloc
 
-* découpage du message en blocs de 8 ou 16 octet
+* découpage du message en blocs de 8 ou 16 octets
 * clé de même taille que le bloc
 * chiffrement par bloc
 * algorithmes les plus connus:
@@ -84,7 +91,11 @@ endwhile
 ### AES à la loupe
 
 * blocs de 128, 192 ou 256 bits
-* conçu pour résister
+* conçu pour résister à de nombreuses attaques
+* standard du NIST
+* facilement implémentable en hardware
+* rapide en soft
+* utilisé partout
 
 --
 
@@ -165,7 +176,7 @@ Note: équivalent à des calculs polynomiaux dans le corps de Galois fini 2^8
 
 ### AES - 4. Clé de tour
 
-A chaque tour un sous-clé (taille du bloc) est dérivée de la clé principale par l'algorithm `KeyScheduler`
+A chaque tour une sous-clé (taille du bloc) est dérivée de la clé principale par l'algorithm `KeyScheduler`
 
 <figure>
 ![AES AddRoundKey](resources/AES-AddRoundKey.svg) <!-- .element width="50%" class="plain" -->
@@ -174,7 +185,7 @@ A chaque tour un sous-clé (taille du bloc) est dérivée de la clé principale 
 
 --
 
-### Mode opératoire des algorithme à bloc
+### Mode opératoire des algorithmes à bloc
 
 * Padding: ajout d'octets morts pour compléter le dernier bloc (par ex des octets nuls)
 * Initialization Vector: clé additionnelle
@@ -221,7 +232,215 @@ L'opération la plus simple, chaque bloc de texte est chiffré indépendemment d
 
 ## Chiffrement asymmétrique
 
+<style type="text/css">
+  .reveal p {
+    text-align: left;
+  }
+  .reveal ul {
+    display: block;
+  }
+  .reveal ol {
+    display: block;
+  }
+</style>
+
+Concept inventé par Whitfield Diffie & Martin Hellman en 1976, et largement utilisé de nos jours dans toutes les communications numériques, les paiement par carte, etc (PKI)
+
+--
+
+### Protocole: une histoire de cadenas
+
+<figure>
+![Cadenas](resources/lock-sending.svg) <!-- .element width="80%" class="plain" -->
+<figcaption>Protocole du cadenas</figcaption>
+</figure>
+
+
+note: Pour simplifier, cela revient par exemple pour Bob à envoyer un cadenas ouvert à Alice et à garder la clé. Alice peut mettre un message dans une boite et la fermer avec le cadenas, seul Bob peut l'ouvrir.
+Un attaquant recevant le cadenas ouvert, ou interceptant la boite ne pourra l'ouvrir, car seul Bob possède la clé.
+
 --
 
 ### Protocole
 
+<figure>
+![Public Key](resources/asymmetric-key-message.svg) <!-- .element width="80%" class="plain" -->
+<figcaption>Chiffrement à clé publiques</figcaption>
+</figure>
+
+
+--
+
+
+### Les algorithmes
+
+* seuls RSA et les algorithmes à courbe elliptiques sont actuellement sûrs
+* ces algorithmes sont lents
+* ils sont tous basés sur une opération mathématique réputée "complexe" (incassable en temps raisonnable en force brute)
+
+Note: RSA >= 2048bits
+
+--
+
+#### RSA
+
+* du nom de ses créateurs: Ron Rivest, Adi Shamir, Leonard Adleman.
+* basé sur la difficulté à factoriser un très grand nombre
+* et sur les calculs en groupe de Galois fermé (mod n)
+
+--
+
+#### RSA: création des clés
+
+1. générons aléatoirement deux nombres premiers très grands `p` et `q`
+2. calculons: `$n = pq$`
+3. choisissons aléatoirement un nombre `e` de telle sorte que `e` soit premier avec `$\phi(n) = (p - 1)(q - 1)$`
+4. calculons `$\newcommand{\Mod}[1]{\ \mathrm{mod}\ #1} d = e^{-1}\Mod \phi(n)$`
+5. `(d,n)` est la clé privée, et `(e,n)` la clé publique
+6. on jette `p` et `q` qui ne servent plus (mais qui peuvent compromettre l'opération)
+
+A noter que `n` doit être un grand nombre (par ex >= 2048 bits, soit un nombre d'environ 650 chiffres decimaux)
+
+note: phi est l'indicatrice d'Euler
+
+--
+
+#### RSA: chiffrement & déchiffrement
+
+1. découpage du message en blocs formant des nombres `$ < n $`
+2. pour chiffrer chaque bloc: `$ \newcommand{\Mod}[1]{\ \mathrm{mod}\ #1} c_i = m_i^e \Mod n $`
+3. pour déchiffer: `$\newcommand{\Mod}[1]{\ \mathrm{mod}\ #1} m_i = c_i^d \Mod n$`
+
+Pourquoi cela fonctionne:
+
+`
+$$
+\newcommand{\Mod}[1]{\ \mathrm{mod}\ #1}
+\begin{align}
+  & c_i^d \Mod n \\
+  & = (m_i^e)^d \Mod{n} \\
+  &  = m_i^{ed} \Mod{n} \\
+  &  = m_i^{ee^{-1}} \Mod{n} \\
+  &  = m_i \Mod{n}
+   = m_i
+\end{align}
+$$
+`
+
+note: les calculs mod n ont des propriétés permettant d'être relativement rapides, pas besoin de faire des puissances de grand nombres, on peut réduire les puissances à un certain nombre de multiplications`
+
+--
+
+#### RSA: chiffrement I
+
+1. avec `$p=241$` et `$q=223$` (premier aléatoires) `$n = pq = 53743$`
+2. `e` ne doit avoir aucun facteur commun avec `$ \phi(n) = (p-1)(q -1) = 53280$`
+3. choisissons `$ e = 2489 $` (dans la pratique c'est souvent 65537)
+4. `$\newcommand{\Mod}[1]{\ \mathrm{mod}\ #1} d = 2489^{-1} \Mod 53280 = 21449 $`
+5. on envoie `$(2489, 53743)$` à Alice on garde précieusement `$(21449,53743)$`
+
+note: les calculs mod n ont des propriétés permettant d'être relativement rapides, pas besoin de faire des puissances de grand nombres, on peut réduire les puissances à un certain nombre de multiplications`
+
+--
+
+#### RSA: chiffrement II
+
+Découpage du message: 'Hello Alice' en nombres `$< 53280$`:
+
+| lettres | nombre | chiffrage |
+|---------|-------:|----------:|
+| He | `$72*256+101 = 18533$` | `$\newcommand{\Mod}[1]{\ \mathrm{mod}\ #1} 18533^{2489} \Mod 53743 = 4589 $`|
+| ll | `$108*256+108 = 27756$` | `$\newcommand{\Mod}[1]{\ \mathrm{mod}\ #1} 27756^{2489} \Mod 53743 = 43255 $`|
+| o  | `$111*256+32 = 28448$` | `$\newcommand{\Mod}[1]{\ \mathrm{mod}\ #1} 28448^{2489} \Mod 53743 = 38054 $`|
+| Al | `$65*256 + 108= 16748$` | `$ \newcommand{\Mod}[1]{\ \mathrm{mod}\ #1}16748^{2489} \Mod 53743 = 42848 $`|
+| ic | `$105*256+99 = 26979$` | `$\newcommand{\Mod}[1]{\ \mathrm{mod}\ #1} 26979^{2489} \Mod 53743 = 13350 $`|
+| e | `$101$` | `$\newcommand{\Mod}[1]{\ \mathrm{mod}\ #1} 101^{2489} \Mod 53743 = 42881 $`|
+
+Message chiffré: `4589 43255 38054 42848 13350 42881` ou `11ed a8f7 94a6 a760 3426 a781` (hexadécimal)
+
+--
+
+#### RSA: déchiffrement
+
+<style type="text/css">
+  .reveal p {
+    text-align: left;
+  }
+  .reveal ul {
+    display: block;
+  }
+  .reveal ol {
+    display: block;
+  }
+</style>
+
+rappel: message en clair: 
+`18533 27756 28448 16748 26979 101`
+
+Message chiffré:
+`4589 43255 38054 42848 13350 42881`
+
+`
+$$
+\newcommand{\Mod}[1]{\ \mathrm{mod}\ #1}
+4589^{21449} \Mod 53743 = 18533 \\
+43255^{21449} \Mod 53743 = 27756 \\
+38054^{21449} \Mod 53743 = 28448 \\
+...
+$$
+`
+
+---
+
+## Fonction de hachage cryptographique
+
+Algorithme qui transforme une source de taille arbitraire en un résultat de taille fixe depuis lequel il est pratiquement impossible de retrouver la source. Cela permet de calculer une empreinte numérique d'un message.
+
+--
+
+### Propriétés
+
+* déterministe (un même message donnera toujours le même résultat)
+* facile à calculer
+* impossible de construire un message depuis un résultat donné
+* impossible de trouver un autre message ayant la même résultat qu'un message donné
+* impossible de trouver deux messages différents ayant la même valeur de hachage
+* modifier un tant soit peu un message modifie considérablement la valeur de hachage
+
+--
+
+### Utilisations
+
+* vérification d'intégrité de message
+* vérification de mot de passe
+* vérification de signatures
+* identification de fichiers/données
+
+note: pour signer on calcul le hachage du message puis calcul de la signature sur le hash.
+
+--
+
+### Exemples
+
+* MD5 (n'est plus sécure)
+* SHA-1 (bof bof aussi)
+* SHA256
+
+---
+
+## Échange de clés
+
+Comment échanger des clés entre Alice et Bob sans qu'Eve ne puisse récupérer celles-ci.
+
+--
+
+## Diffie Helmann
+
+
+
+
+---
+
+## La cryptographie et Internet
+
+Le protocole derrière HTTPS appelé SSL/TLS utilise de 
