@@ -1,0 +1,27 @@
+{
+  "name": "qt-lud",
+  "version": "0.0.0",
+  "private": true,
+  "devDependencies": {
+    "bower": "^1",
+    "coffeelint": "^1.16.0",
+    "grunt": "^1.0.0",
+    "grunt-coffeelint": "0.0.16",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "load-grunt-tasks": "^3.5.2"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "grunt test",
+    "start": "grunt serve",
+    "postinstall": "node_modules/bower/bin/bower install -F"
+  },
+  "dependencies": {
+    "coffeescript": "^2.6.1"
+  }
+}
