@@ -17,7 +17,7 @@
     
 
         <!-- For syntax highlighting -->
-        <link rel="stylesheet" href="bower_components/highlightjs/styles/zenburn.css">
+        <link rel="stylesheet" href="bower_components/highlightjs/styles/solarized-light.css">
 
         <!-- Printing and PDF exports -->
         <script>
@@ -36,6 +36,9 @@
              font-size: 0.75em;
              font-style: italic;
              margin-top: -15px;
+          }
+          .reveal pre code {
+            font-family: monospace; 
           }
           .reveal code {
             font-family: monospace; 
@@ -79,7 +82,7 @@
             transition: 'slide', // none/fade/slide/convex/concave/zoom
 
             math: {
-              mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+              mathjax: 'bower_components/MathJax/MathJax.js',
               config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
             },
 
