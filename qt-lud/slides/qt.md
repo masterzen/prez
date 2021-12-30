@@ -159,7 +159,7 @@ La théorie des files d'attente propose des modèles basés sur des assomptions.
 
 ## Modèles
 
-La théorie des files d'attente est basée sur l'étude des probabilités, un discipline compliquée et rarement intuitive. 
+La théorie des files d'attente est basée sur l'étude des probabilités, une discipline compliquée et rarement intuitive. 
 
 Notre intuition humaine est avant tout _linéaire_: si le trafic double, le reste doublera pensons-nous ?
 
@@ -193,6 +193,8 @@ note: we're focusing only on FIFO
 ## Anatomie: population
 
 Dans certains modèles, la population pouvant être servie est finie (file d'attente en boucle), au contraire des files d'attentes classiques (caisses de supermarchés, etc) ou la population est infinie
+
+note: cas de machines industrielles devant être réparées dans une usine
 
 --
 
@@ -235,7 +237,7 @@ pour `A` et `S`:
 
 * M/M/1 ou M/M/1/∞/∞/FIFO -> Poisson, Exponentielle 1 serveur
 * M/M/2 -> 2 serveurs
-* M/D/3 -> temps de services constant time, 3 servers
+* M/D/3 -> temps de services constant, 3 servers
 * M/M/2/10/∞/FIFO -> Poisson/Exponentielle à taille de file fixe et 2 serveurs
 
 ---
@@ -273,9 +275,9 @@ note: formulée par Little en 1954 et démontrée en 1961. Ultra importante, et 
 
 ## Quelques remarques en passant
 
-* si `$λ$` fréquence moyenne d'arrivées
+* si `$λ$` vitesse moyenne des arrivées
 * et `$µ$`: vitesse moyenne de service (client/unité de temps)
-* alors `$\rho = {\lambda}/{\mu} $` correspond à la charge:
+* alors `$\rho = {\lambda}/{\mu} $` correspond à la charge (utilisation):
   * `$ \rho < 1 $` -> file d'attente finie
   * `$ \rho > 1 $` -> file d'attente infinie !
 
@@ -284,43 +286,109 @@ note: formulée par Little en 1954 et démontrée en 1961. Ultra importante, et 
 ## M/M/1
 
 * le modèle le plus simple, 1 file, 1 serveur
-* arrivées: distribution de Poisson (bon modèle des phénomènes aléatoire naturels, mais suppose un grand échantillon et pas d'interdépendance entre les clietns)
-* service: distribution Exponentielle (le pendant de Poisson pour les distribution continues)
+* arrivées: distribution de Poisson 
+* service: distribution Exponentielle 
+note: poisson=(bon modèle des phénomènes aléatoire naturels, mais suppose un grand échantillon et pas d'interdépendance entre les clietns), exponentielle=(le pendant de Poisson pour les distribution continues)
 
 --
 
 ## M/M/1 à la loupe
 
-Temps d'attente moyen dans la file:
-`
-$$ W = \frac{\rho S}{1 - \rho} $$
-`
-Temps moyen passé dans le système:
-`
-$$ R = W + S = \frac{S}{1 - \rho} = \frac{1}{\mu - \lambda} $$
-`
-Nombre de clients dans la file:
-`
-$$ L = \lambda W = \frac{\rho^2}{1 - \rho} $$
-`
-Nombre moyen de clients:
+Taux d'occupation (mesure de la charge):
 
-$$ Q = \lambda R = \frac{\rho}{1 - \rho} $$
+`
+$$ \rho = \frac{\lambda}{\mu} $$
+`
+
+`$ 0 < \rho < 1$`
+
+note: si lambda >> mu, problème, pas de stabilité.
 
 --
 
-## M/M/1 au microscope
+## M/M/1 à la loupe
 
-Probabilité d'avoir une file vide:
+Processus de naissance & mort:
+
+<figure>
+![Naissance & Mort](resources/mm1-birth-death.svg) <!-- .element width="70%" class="plain" -->
+<figcaption>Naissance & Mort</figcaption>
+</figure>
+
+* système ergodique: temps passé dans un état = probabilité d'être dans cet état
+* il y a autant de passage d'un état n à un état n+1 que d'état n+1 à l'état n
+
+
+note: utilisé pour l'analyse de population
+1 naissance à la fois, 1 mort à la fois - représente les probabilités des états
+systeme ergodique = proba d'etre dans tel état == temps dans cet état sur longue période
+etat 0 -> pas de clietns
+etat 1 -> 1 client servi
+etat 2 -> 1 client servi 1 attend, etc
+analogie de l'ascenseur
+proba state 0 = % temps passé state 0
+state 0 -> facile 1 - rho
+probabilité état 0 ?
+probabilité état X ?
+
+--
+
+## M/M/1 à la loupe II
+
+* `$ \lambda P_0 = \mu P_1 $` et donc `$ P_1 = \frac{\lambda}{\mu}P_0 $`
+* de même `$ P_n = \frac{\lambda}{\mu}P_{n-1} $`
+* par extension: `$ P_n = (\frac{\lambda}{\mu})^{n}P_0 $`
 
 `
-$$ P_0 = 1 - \frac{\lambda}{\mu} $$
+$ 
+\sum_{i=0}^{\infty} P_i = 1 => \sum_{i=0}^{\infty} (\frac{\lambda}{\mu})^{i}P_0 \\
+comme \sum_{i=0}^{\infty} x^i = \frac{1}{1 - x} \\
+alors \\
+1 = \frac{1}{1 - \rho} P_0 => P_0 = 1 - \rho
+$
 `
 
-Probabilité d'avoir `$n$` clients
+--
 
+## M/M/1 à la loupe III
+
+* espérance mathématique du nombres de clients:
+
+`$
+E_s = \sum_{i=0}^{\infty} iP_i = \sum_{i=0}^{\infty} i (\frac{\lambda}{\mu})^{i}P_0 = P_0 \sum_{i=0}^{\infty} i (\frac{\lambda}{\mu})^{i} \\
+et \sum_{i=0}^{\infty} ix^(i-1) = \frac{1}{(1 - x)^2} \\
+donc \\
+E_s = P_0 \sum_{i=0}^{\infty} i \rho^i = (1 - \rho) \rho \sum_{i=0}^{\infty} i \rho^{i-1} \\ 
+= (1 -\rho) \rho \frac{1}{(1 - \rho)^2} = \frac{(1-\rho) \rho}{(1 - \rho)^2} = \frac{\rho}{1 - \rho}
+$`
+
+note: espérance: valeur attendue moyenne d'une variable aléatoire (moyenne pondérée)
+
+--
+
+## M/M/1 exemple
+
+Exemple: `$ \lambda = 2/m $` et `$ \mu = 3/m $`
+
+Quel temps d'attente ?
+
+`$
+W = W_q + W_s = E_s \frac{1}{\mu} + \frac{1}{\mu} = \frac{\frac{2}{3}}{1 - \frac{2}{3}} \frac{1}{3} + \frac{1}{3} = 2(\frac{1}{3}) + \frac{1}{3} = 1 minute
+$`
+
+note: 2 clients arrivent par minutes, et 3 clients partent par minutes
+
+--
+
+## M/M/1 encore ?
+
+Temps d'attente moyen dans la file:
 `
-$$ P_n = \rho^n P_0 $$
+$$ W_q = W - W_s = \frac{L}{\lambda} = \frac{W_s}{1 - \rho} = \frac{1}{\mu - \lambda} $$
+`
+Nombre de clients dans la file:
+`
+$$ L_q = \lambda W_q = \frac{\rho^2}{1 - \rho} $$
 `
 
 --
@@ -338,7 +406,6 @@ $$ \frac{1}{1 - \rho}$$
 <figcaption>Ça peut faire mal</figcaption>
 </figure>
 
-
 note: at high utilization, waiting times become
  asymptotical ! Clearly we need to keep the system
  under optimal utilization.
@@ -347,13 +414,57 @@ note: at high utilization, waiting times become
 
 ## M/M/c
 
-C'est le modèle file unique, plusieurs guichets, et requiert la formule Erlang-C:
+Stable si `$ \lambda \le c\mu $`
+
+Processus de naissance & mort:
+
+<figure>
+![Naissance & Mort](resources/mmc-birth-death.svg) <!-- .element width="70%" class="plain" -->
+<figcaption>Naissance & Mort</figcaption>
+</figure>
+
+`$ \begin{cases}
+          \lambda P_{n-1} = n \mu P_{n} & \mbox{si } n = 1,\ldots, c-1, c \\
+          \lambda P_{n-1} = c \mu P_{n} & \mbox{si } n > c
+  \end{cases} $`
+
+note: C'est le modèle file unique plusieurs guichets, et requiert la formule Erlang-C:
+
+--
+
+## M/M/c II
+
+donc avec `$ \rho = \lambda / \mu $`
+
+`$ \begin{cases}
+          P_n = \frac{\rho^n}{n!} P_0 & \mbox{si } n = 1,\ldots, c-1, c \\
+          P_n = \frac{\rho^n}{c!c^{n-c}} P_0 & \mbox{si } n > c
+  \end{cases} \\
+  et \sum_{i=0}^{\infty} P_i = 1 \\
+  donc \\
+  P_0 = \frac{1}{(\sum_{n=0}^{c-1}{\frac{\rho^n}{n!}}) + \frac{\rho^c}{(c-1)!(c-\rho)}}
+  $`
+
+note: cela vous rappelle-t-il quelque chose?
+
+--
+
+## M/M/c III
+
+Quelle est la probabilité lors d'une arrivée de trouver tous les serveurs occupés?
 
 `
-$$ C(c,\rho) = \frac{1}{1 + (1 - \rho)(\frac{c!}{(c \rho)^c})(\sum_{k=0}^{c-1} \frac{(c \rho)^k}{k!})} $$
+$$ C[c,\rho] = \sum_{n=c}^{\infty}P_n = 1 - \sum_{n=0}^{c-1} P_n = 1 - P_0 \sum_{n=0}^{c-1} \frac{\rho^n}{n!} \\
+   = \frac{\frac{\rho^c c}{c!(c-\rho)}}{(\sum_{n=0}^{c-1}{\frac{\rho^n}{n!}}) + \frac{\rho^c c}{c!(c-\rho)}}
+$$
 `
 
-\\(c \rho\\) = traffic intensity mesured in Erlangs
+note: comme par hasard c'est la formule Erlang-C. Par contre pas calculable directement, mais il existe de bonnes approximations (cf Hirotaka Sakasegawa en 1977, ou plus récemment Gunther)
+ce n'est pas intuitif (on ne peut pas raisonner dessus en fonction augmentation lambda/mu)
+
+--
+
+## M/M/c IV
 
 Nombre moyen de clients dans le système:
 
@@ -361,76 +472,61 @@ Nombre moyen de clients dans le système:
 $$ L = \frac{\rho}{1 - \rho} C(c,\rho) + c \rho $$
 `
 
-note: C equation requires iterative computations - can't be computed in Excel 
-it's also not intuitive (can't derive any information if c increases/decreases)
-Erlang is a measure of load (number of call active at a moment in a telephone system)
+Temps d'attente moyen:
 
---
-
-## M/M/c
-
-We need approximations !
-
-Hirotaka Sakasegawa 1977 approximation
-
-$$ L\_q \approx \frac{\rho \sqrt{2(c + 1)}}{1 - \rho} $$
-
-note:
-increase rho -> increase in q time
-increase c -> decrease of q time 
-
---
-
-## M/M/c
-
-Gunther's approximation:
-
-$$ L\_q \approx \rho c (\frac{1}{1 - \rho^c} - 1) $$
-
-
---
-
-## M/M/c
-
-|servers | utilization  | Erlang C  | Sakasegawa | Gunther   |
-|--------|------------- |-----------|------------|-----------|
-|    1   |     0.500    | 0.500000  |  0.500000  | 0.500000  |
-|    2   |     0.500    | 0.333333  | 0.333333   | 0.366151  |
-|    2   |     0.999    | 997.50175 |  997.50175 | 997.552285|
-|    8   |     0.500    | 0.059044  |  0.015686  | 0.105650  |
-|    8   |     0.999    | 995.760755|  994.509747| 995.764233|
-|   64   |     0.999    | 989.334082|  966.873556| 988.657359|
-
---
-
-## Utilization per \# of servers
-
-![Utilization per # server](utilization-servers.png)
-
-note:
-different server count=1, 2, 16
-this has an impact -> more concurrency can use system at higher utilization
+`
+$$ W = \frac{\lambda C(c,\rho)}{c\mu - \lambda} + \frac{1}{\mu} $$
+`
 
 ---
 
-## Combined or Separate ?
+## M/M/c comparaisons
 
-Airport checking with 2xM/M/1 or an M/M/2 with 240 passengers/hour with a service time of 15s per passenger:
+<figure>
+![Temps d'attente](resources/utilization-servers.png) <!-- .element width="50%" class="plain" -->
+<figcaption>Temps d'attente en fonction de la charge pour c=1,2,16</figcaption>
+</figure>
 
-| Metric       | Combined | Separate |
-|------------- |----------|----------|
-| Utilization  |   50%    |   50%    |
-| Avg Q Length |   0.33   |   0.5    |
-| Avg W        |   20s    |   30s    |
+note: pour c=1, 2, 16, avec plus de serveurs concurrents on peut avoir plus de charge utilse
 
 --
 
-## Combined or Separate ?
+## 2xM/M/1 ou M/M/2 ?
 
-4 times more passengers, adding 4 servers
+Comparons deux guichets d'aéroport 2xM/M/1 avec M/M/2 et 240 passagers/heure en supposant 15s par passager:
 
-| Metric       | Combined | Separate |
+| Grandeur     | M/M/2    | 2xM/M/1  |
 |------------- |----------|----------|
-| Utilization  |   50%    |   50%    |
-| Avg Q Length |   0.06   |   0.5    |
-| Avg W        |   15.24s |   30s    |
+| Charge       |   50%    |   50%    |
+| Lq           |   0.33   |   0.5    |
+| W            |   20s    |   30s    |
+
+--
+
+## 4xM/M/1 ou M/M/4 ?
+
+Imaginons avoir 4 fois plus de passagers et 4 guichets
+
+| Grandeur     | Combined | Separate |
+|------------- |----------|----------|
+| Charge       |   50%    |   50%    |
+| Lq           |   0.06   |   0.5    |
+| W            |   15.24s |   30s    |
+
+---
+
+## Pour aller plus loin ?
+
+* réseaux de files d'attente
+* modèles non-markovien
+* champ d'application
+
+---
+
+## Bibliographie
+
+* Introduction to Queueing Theory - Robert Cooper
+(cours en ligne: https://youtu.be/AsTuNP0N7DU)
+* Probability, Statistics and Queueing Theory with Computer Science Application - Arnold Q. Allen
+* Théorie des files d'attentes - Bruno Baynat
+* https://youtu.be/MUgsCmbL9ls
