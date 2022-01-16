@@ -402,7 +402,7 @@ Algorithme qui transforme une source de taille arbitraire en un résultat de tai
 * déterministe (un même message donnera toujours le même résultat)
 * facile à calculer
 * impossible de construire un message depuis un résultat donné
-* impossible de trouver un autre message ayant la même résultat qu'un message donné
+* impossible de trouver un autre message ayant le même résultat qu'un message donné
 * impossible de trouver deux messages différents ayant la même valeur de hachage
 * modifier un tant soit peu un message modifie considérablement la valeur de hachage
 
@@ -504,11 +504,12 @@ Les communications sur Internet sont protégées par un protocole appelé SSL/TL
 
 --
 
-### SSL/TLS: la PKI
+### SSL/TLS: la PKI X509
 
-* Chaque serveur possède RSA dont la clé publique est appelée _certificat_.
-* Ce _certificat_ est signé par une autorité de certification _CA_.
-* Tous les clients connaissent les _certificats_ des _CA_ (dit _racines_)
+<figure>
+![X509 PKI](resources/pki.svg) <!-- .element width="70%" class="plain" -->
+<figcaption>PKI X509</figcaption>
+</figure>
 
 --
 
@@ -523,7 +524,8 @@ Les communications sur Internet sont protégées par un protocole appelé SSL/TL
 
 ## Bibliographie
 
-TLS: https://datatracker.ietf.org/doc/html/rfc5246
-Cryptographie:
-* A. J. Menezes, P. C. van Oorschot, and S. A. Vanstone: Handbook of Applied Cryptography
-* Bruce Schneier: Applied Cryptography
+* TLS: 
+  * https://datatracker.ietf.org/doc/html/rfc5246
+* Cryptographie:
+  * A. J. Menezes, P. C. van Oorschot, and S. A. Vanstone: Handbook of Applied Cryptography
+  * Bruce Schneier: Applied Cryptography
