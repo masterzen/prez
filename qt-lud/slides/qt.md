@@ -1,6 +1,6 @@
 # Introduction à la théorie des files d'attente
 
-&copy; 2021 Brice Figureau
+&copy; 2021, 2022 Brice Figureau
 
 ---
 
@@ -10,11 +10,11 @@
 
 --
 
-## Loi de Murphy (appliquée aux files d'attente)
+## Loi de Murphy (appliquée aux queues)
 
-* si tu changes de file, celle que tu quittes avancera plus vite que celle dans laquelle tu es.
-* corrolaire: ta file d'attente est toujours la plus lente
-* corrolaire 2: quelque soit la file d'attente que tu rejoins, même la plus courte, ton temps d'attente sera toujours le plus long
+* loi: _si tu changes de file, celle que tu quittes avancera plus vite que celle dans laquelle tu es_.
+* corrolaire 1: _ta file d'attente est toujours la plus lente_
+* corrolaire 2: _quelque soit la file d'attente que tu rejoins, même la plus courte, ton temps d'attente sera toujours le plus long_
 
 ---
 
@@ -26,7 +26,7 @@
 
 * la salle de bain le matin
 * les bouchons
-* banque, la poste
+* banque, la poste, les caisses de magasin
 * restaurants
 * et même au travail (attente de documents, collaboration, travail en cours, etc)
 ...
@@ -35,10 +35,9 @@
 
 ### ainsi que dans les systèmes informatiques
 
-* RAM / CPU
-* routers
-* kernels
-* software
+* RAM / CPU / disques durs
+* routers / switchs
+* kernels / logiciel
 ...
 
 --
@@ -51,7 +50,20 @@
 
 ## La théorie des files d'attente
 
-Branche de recherche faisant partie des mathématiques appliquées (et un peu de l'automatique) ayant pour but de modéliser le comportement des files d'attente.
+Branche de la recherche faisant partie des mathématiques appliquées ayant pour but de modéliser le comportement des files d'attente.
+
+--
+
+## Mais...
+
+Nous ne parlerons pas:
+
+* de psychologie
+* de mécanique des fluides
+* de dynamique des foules
+* du balking, jockeying et du renoncement
+
+note: balking: ne pas entrer dans une file car elle semble trop longue, jockeying changer de file pour tenter d'optimiser, renoncement quand le temps d'attente est trop long (modèle beaucoup plus compliqués)
 
 ---
 
@@ -84,7 +96,7 @@ Branche de recherche faisant partie des mathématiques appliquées (et un peu de
 
 ### Problème
 
-> Combien de lignes d'interconnexion et combien d'opérateurs faut-il sachant le nombre d'abonnés, la fréquence des appels et leur durés moyennes ?
+> Combien de lignes d'interconnexion et combien d'opérateurs faut-il sachant le nombre d'abonnés, la fréquence des appels et leur durées moyennes ?
 
 Note: article de 1909 "The theory of probabilities and telephone conversations" et plus tard les formules de "perte" d'appel qui furent utilisées partout dans le monde. Certains ingénieurs allant jusqu'à apprendre le danois pour comprendre les articles d'Erlang
 
@@ -159,11 +171,15 @@ La théorie des files d'attente propose des modèles basés sur des assomptions.
 
 ## Modèles
 
-La théorie des files d'attente est basée sur l'étude des probabilités, une discipline compliquée et rarement intuitive. 
+Le problème est peu intuitif (cf Erlang-C) car basé sur des probabilités. 
 
-Notre intuition humaine est avant tout _linéaire_: si le trafic double, le reste doublera pensons-nous ?
+Notre intuition humaine est _linéaire_: si le trafic double, le reste doublera pensons-nous ?
 
-Que nenni, les systèmes à base de files sont avant tout _non-linéaires_.
+--
+
+## Modèles
+
+> Les systèmes à base de files d'attente sont avant tout **non-linéaires**.
 
 --
 
@@ -355,14 +371,15 @@ $
 * espérance mathématique du nombres de clients:
 
 `$
-E_s = \sum_{i=0}^{\infty} iP_i = \sum_{i=0}^{\infty} i (\frac{\lambda}{\mu})^{i}P_0 = P_0 \sum_{i=0}^{\infty} i (\frac{\lambda}{\mu})^{i} \\
-et \sum_{i=0}^{\infty} ix^(i-1) = \frac{1}{(1 - x)^2} \\
+L = \sum_{i=0}^{\infty} iP_i  = \sum_{i=0}^{\infty} i (\frac{\lambda}{\mu})^{i}P_0  = P_0 \sum_{i=0}^{\infty} i (\frac{\lambda}{\mu})^{i}   \\
+et \sum_{i=0}^{\infty} ix^{(i-1)} = \frac{1}{(1 - x)^2} \\
 donc \\
-E_s = P_0 \sum_{i=0}^{\infty} i \rho^i = (1 - \rho) \rho \sum_{i=0}^{\infty} i \rho^{i-1} \\ 
-= (1 -\rho) \rho \frac{1}{(1 - \rho)^2} = \frac{(1-\rho) \rho}{(1 - \rho)^2} = \frac{\rho}{1 - \rho}
+L = P_0 \sum_{i=0}^{\infty} i \rho^i  = (1 - \rho) \rho \sum_{i=0}^{\infty} i \rho^{i-1}  \\ 
+= (1 -\rho) \rho \frac{1}{(1 - \rho)^2}  = \frac{(1-\rho) \rho}{(1 - \rho)^2}  = \frac{\rho}{1 - \rho} \\ 
+L_q = L - (1 - P_0) = \frac{\rho^2}{1 - \rho}
 $`
 
-note: espérance: valeur attendue moyenne d'une variable aléatoire (moyenne pondérée)
+note: espérance: valeur moyenne pondérée d'une variable aléatoire
 
 --
 
@@ -373,7 +390,7 @@ Exemple: `$ \lambda = 2/m $` et `$ \mu = 3/m $`
 Quel temps d'attente ?
 
 `$
-W = W_q + W_s = E_s \frac{1}{\mu} + \frac{1}{\mu} = \frac{\frac{2}{3}}{1 - \frac{2}{3}} \frac{1}{3} + \frac{1}{3} = 2(\frac{1}{3}) + \frac{1}{3} = 1 minute
+W = W_q + W_s = L_q \frac{1}{\mu} + \frac{1}{\mu} = \frac{\frac{2}{3}}{1 - \frac{2}{3}} \frac{1}{3} + \frac{1}{3} = 2(\frac{1}{3}) + \frac{1}{3} = 1 minute
 $`
 
 note: 2 clients arrivent par minutes, et 3 clients partent par minutes
@@ -491,7 +508,7 @@ note: pour c=1, 2, 16, avec plus de serveurs concurrents on peut avoir plus de c
 
 --
 
-## 2xM/M/1 ou M/M/2 ?
+## 2 M/M/1 ou 1 M/M/2 ?
 
 Comparons deux guichets d'aéroport 2xM/M/1 avec M/M/2 et 240 passagers/heure en supposant 15s par passager:
 
@@ -503,15 +520,16 @@ Comparons deux guichets d'aéroport 2xM/M/1 avec M/M/2 et 240 passagers/heure en
 
 --
 
-## 4xM/M/1 ou M/M/4 ?
+## 4 M/M/1 ou 1 M/M/4 ?
 
 Imaginons avoir 4 fois plus de passagers et 4 guichets
 
-| Grandeur     | Combined | Separate |
+| Grandeur     | M/M/4    | 4xM/M/1  |
 |------------- |----------|----------|
 | Charge       |   50%    |   50%    |
 | Lq           |   0.06   |   0.5    |
 | W            |   15.24s |   30s    |
+
 
 ---
 
@@ -519,14 +537,41 @@ Imaginons avoir 4 fois plus de passagers et 4 guichets
 
 * réseaux de files d'attente
 * modèles non-markovien
-* champ d'application
+* autres champs d'application
 
 ---
 
 ## Bibliographie
 
 * Introduction to Queueing Theory - Robert Cooper
-(cours en ligne: https://youtu.be/AsTuNP0N7DU)
+(cours en ligne EN: https://youtu.be/AsTuNP0N7DU)
 * Probability, Statistics and Queueing Theory with Computer Science Application - Arnold Q. Allen
-* Théorie des files d'attentes - Bruno Baynat
-* https://youtu.be/MUgsCmbL9ls
+* Théorie des files d'attente - Bruno Baynat
+* Théorie des files d'attente (cours en ligne https://youtu.be/MUgsCmbL9ls)
+
+---
+
+### Aurais-je menti ?
+
+--
+
+## Un (tout petit) peu de psychologie
+
+* Richard C. Larson "The Psychology of Queuing and Social Justice", 1981
+* David Maister "The Psychology of Waiting Lines", 1985
+
+note: Larson, professeur au MIT, fondateur de la psychologie des files. A cause d'une attente injuste pour acheter un vélo dans un grand magasin ou des gens pouvaient retirer leur achats avant lui (non FIFO)
+
+---
+
+## Les 6 règles de David Maister
+
+1. Le temps pendant lequel nous sommes inoccupés semble plus long que du temps ou on est occupé
+2. Les gens veulent que cela démarre (temps d'attente de début de transaction)
+3. Attendre un temps non connu est plus difficile qu'attendre un temps connu à l'avance
+4. Les attentes inexpliquées sont plus difficiles que les attentes dont la cause est connue
+5. Les attentes injustes sont plus difficiles que les attentes juste
+6. L'anxiété augmente le temps d'attente perçu
+
+note: 2. -> temps d'attente pour être assi au restaurant plus difficile que temps pour être servi, 5. -> lorsque FIFO non enforce
+
