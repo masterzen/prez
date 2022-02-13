@@ -12,6 +12,18 @@
 ![Eve](resources/eve.png) <!-- .element width="20%" class="plain" -->
 </figure>
 
+---
+
+## Quelques grandeurs
+
+| Analogue physique | nombre |
+|-------------------|--------|
+| Atomes sur terre | `$10^{51} (2^{170})$` |
+| Atomes soleil | `$10^{57} (2^{190})$` |
+| Atomes univers | `$10^{77} (2^{265})$` |
+| proba d'être tué par un éclair | `$1 / (2^{33})$` |
+| proba de gagner à la lotterie | `$1 / (2^{22})$` |
+| proba de gagner à la lotterie et d'être tué par un  éclair le même jour | `$1 / (2^{55})$` |
 
 ---
 
@@ -126,62 +138,16 @@ L'algorithme fait subir les transformations suivantes à chaque tour (répété 
 
 --
 
-### AES - 1. Substitution
-
- Application d'une S-box (non linéaire)
-
-<figure>
-![AES SubBytes](resources/AES-SubBytes.svg) <!-- .element width="70%" class="plain" -->
-<figcaption>AES SubBytes</figcaption>
-</figure>
-
-Note: non linéaire, S-box: table de lookup précalculée
-
---
-
-### AES - 2. Décalage lignes
+### AES - en image
 
 
 <figure>
-![AES ShiftRows](resources/AES-ShiftRows.svg) <!-- .element width="70%" class="plain" -->
-<figcaption>AES ShiftRows</figcaption>
+![AES Round](resources/AES_Round_Function.png) <!-- .element width="40%" class="plain" -->
+<figcaption>AES Round</figcaption>
 </figure>
 
-Note: permet d'éviter que les colonnes soient chiffrées indépendemment transformant l'algo en 4 chiffrements plus faibles. Grace à ce décalage, les colonnes de sorties contiennent des informations de toutes les colonnes d'entrées.
-
---
-
-### AES - 3. Mélange colonnes
-
-<figure>
-![AES MixColumns](resources/AES-MixColumns.svg) <!-- .element width="50%" class="plain" -->
-<figcaption>AES MixColumns</figcaption>
-</figure>
-
-`$\begin{bmatrix}
-b_{0,j} \\ b_{1,j} \\ b_{2,j} \\ b_{3,j}
-\end{bmatrix} = \begin{bmatrix}
-2 & 3 & 1 & 1 \\
-1 & 2 & 3 & 1 \\
-1 & 1 & 2 & 3 \\
-3 & 1 & 1 & 2
-\end{bmatrix} \begin{bmatrix}
-a_{0,j} \\ a_{1,j} \\ a_{2,j} \\ a_{3,j}
-\end{bmatrix}
-\qquad 0 \le j \le 3$`
-
-Note: équivalent à des calculs polynomiaux dans le corps de Galois fini 2^8
-
---
-
-### AES - 4. Clé de tour
-
-A chaque tour une sous-clé (taille du bloc) est dérivée de la clé principale par l'algorithm `KeyScheduler`
-
-<figure>
-![AES AddRoundKey](resources/AES-AddRoundKey.svg) <!-- .element width="50%" class="plain" -->
-<figcaption>AES AddRoundKey</figcaption>
-</figure>
+Note: 1. non linéaire, S-box: table de lookup précalculée
+2. permet d'éviter que les colonnes soient chiffrées indépendemment transformant l'algo en 4 chiffrements plus faibles. Grace à ce décalage, les colonnes de sorties contiennent des informations de toutes les colonnes d'entrées.
 
 --
 
@@ -279,6 +245,35 @@ Un attaquant recevant le cadenas ouvert, ou interceptant la boite ne pourra l'ou
 * ils sont tous basés sur une opération mathématique réputée "complexe" (incassable en temps raisonnable en force brute)
 
 Note: RSA >= 2048bits
+
+--
+
+#### Arithmétique modulaire I
+
+<figure>
+![Arithmétique modulaire](resources/clock-arithmetic.png) <!-- .element width="70%" class="plain" -->
+<figcaption>Arithmétique modulaire: mod 12</figcaption>
+</figure>
+
+note: arithmétique dans un ensemble fini, sur un "cercle". habituellement modulo nombre premier
+
+--
+
+#### Arithmétique modulaire II
+
+`$\newcommand{\Mod}[1]{\ \mathrm{mod}\ #1} 39 \Mod{7} = 5 \times 7 + 4 $`
+
+--
+
+#### Arithmétique modulaire III
+
+Propriétés intéressantes:
+
+`$\newcommand{\Mod}[1]{\ \mathrm{mod}\ #1}
+(a + b) \Mod{n} = ((a \Mod{n})  + (b \Mod{n})) \Mod{n} \\
+(a \cdot b) \Mod{n} = ((a \Mod{n}) \cdot (b \Mod{n})) \Mod{n} \\
+(a \cdot (b + c)) \Mod{n} = (((a \cdot b)) \Mod{n}) + ((b \cdot c) \Mod{n})) \Mod{n} \\
+(a^{x} \Mod{n}) = (a \cdot a \cdot ...) \Mod{n}$`
 
 --
 
@@ -389,6 +384,15 @@ $$
 $$
 `
 
+--
+
+#### Casser RSA ?
+
+* rappel: `$\newcommand{\Mod}[1]{\ \mathrm{mod}\ #1} d = e^{-1}\Mod{\phi(n)}$`
+* casser RSA -> trouver `$d$` depuis `$n$` et `$e$`
+* logarithme discret -> seul moyen connu: factoriser `$n$`
+* clé > 2048 bits
+
 ---
 
 ## Fonction de hachage cryptographique
@@ -498,6 +502,130 @@ note: Eve ne peut calculer une signature pour se faire passer pour Bob, car cela
 
 ---
 
+## Courbes Elliptiques
+
+<figure>
+![Courbe elliptique](resources/ecc_1.webp) <!-- .element width="70%" class="plain" -->
+<figcaption>`$y^2 = x^3 - 3x + z$`</figcaption>
+</figure>
+
+--
+
+## Courbes Elliptiques: addition
+
+<figure>
+![Addition](resources/ecc_2.webp) <!-- .element width="70%" class="plain" -->
+<figcaption>Addition</figcaption>
+</figure>
+
+--
+
+## Courbes Elliptiques: mod p
+
+<figure>
+![mod 281](resources/ecc_3.webp) <!-- .element width="70%" class="plain" -->
+<figcaption>`$\newcommand{\Mod}[1]{\ \mathrm{mod}\ #1}(y^2 - x^3 + 3x) \mod 281 = 0$`</figcaption>
+</figure>
+
+note: p est un nombre premier (en pratique > 128 bits)
+
+--
+
+## Courbes Elliptiques: addition mod p
+
+<figure>
+![addition mod 97](resources/ecc_4.gif) <!-- .element width="70%" class="plain" -->
+<figcaption>`$(70,6), (76,48) = -(69,22) = (82,6)$`</figcaption>
+</figure>
+
+--
+
+## Courbes Elliptiques: groupes polynomiaux
+
+* corps fini de Galois `$GF(2^p)$`: `${a_{m−1}x^{m−1} + a_{m−2}x^{m−2} + ··· + a_1x + a_0 : a_i ∈ {0, 1}}$`
+* courbe elliptique avec polynôme réducteur, ex: `$\mathbb{F}_{2^{389}}: x^{283} + x^{12} + x^7 + x^5 + 1$`
+* très rapide à calculer (+ -> XOR, multiplication: décalage et rotation binaires, etc)
+
+--
+
+## ECC: Diffie Hellman
+
+* Alice et Bob se mettent d'accord sur la courbe et le point de départ aléatoire `G`
+* Alice et Bob choisissent aléatoirement leur clés privées `$\alpha$` et `$\beta$`
+* Alice: `$A = \alpha G$`, Bob `$B = \beta G$` (par addition successive de G)
+* Alice & Bob échangent A et B
+
+`
+$$ 
+ \begin{equation}
+  \begin{split}
+     S &= \alpha B \\
+       &= \alpha (\beta G) \\
+       &= \beta (\alpha G) \\
+       &= \beta A
+  \end{split}
+  \quad\leftrightarrow\quad
+  \begin{split}
+     S &= \beta A \\
+       &= \beta (\alpha G) \\
+       &= \alpha (\beta G) \\
+       &= \alpha B
+  \end{split}
+ \end{equation}
+$$`
+
+note: eve ne peut pas retrouver S sans avoir alpha ou beta elle connait juste G, A et B. Retrouver alpha et beta est équivalent à calculer le logarithme discret g-1G = B
+
+--
+
+## ECC: ECDSA - signature
+
+1. Calculer `$e = \textrm{SHA-2}(m)$`
+2. Soit `$z$` les `$L_n$` MSB de `$e$`
+3. Choisir `$k$` nombre aléatoire `$[1, n-1]$`
+4. Calculer `$P(x_1, y_1) = k \times G$`
+5. Calculer `$r = x_1\,\bmod\,n$` (si `$r = 0$` -> 3.)
+6. Calculer `$s = k^{-1}(z + r d_A)\,\bmod\,n$` (si `$s = 0$` -> 3.)
+7. La signature est `$(r, s)$`
+
+note: Ln = bit length or group order, donc 256 bits pour P256, etc
+
+--
+
+## ECC: ECDSA - vérification
+
+1. Calculer `$e = \textrm{SHA-2}(m)$`
+2. Soit `$z$` les `$L_n$` MSB de `$e$`
+3. Calculer `$u_1 = zs^{-1}\,\bmod\,n$` et `$u_2 = rs^{-1}\,\bmod\,n$`
+4. Calculer le point `$P(x_1, y_1) = u_1 \times G + u_2 \times Q_A$` si `$P = O_\infty$` signature invalide
+5. La signature est valide si: `$r = x_1 \pmod{n}$`
+
+--
+
+## ECC: courbes recommandées
+
+| courbe | ECC    | RSA |
+|--------|--------|-----|
+|secp224r1|224|2048|
+|secp256r1|256|3072|
+|secp521r1|521|15360|
+|sect233r1 |233 |2240|
+|sect283r1 |283 |3456|
+|sect409r1 |409 |7680|
+|sect571r1 |571 |15360|
+
+--
+
+## ECC: secp256r1
+
+* `$p = 2^{224}(2^{32} − 1) + 2^{192} + 2^{96} − 1$`
+* `$y^2 = x^3 + ax + b \bmod p$`
+* `$a = FFFFFFFF0000000100000000000000000\\0000000FFFFFFFFFFFFFFFFFFFFFFFC$`
+* `$b = 5AC635D8AA3A93E7B3EBBD55769886BC6\\51D06B0CC53B0F63BCE3C3E27D2604B$`
+* `$G = (6B17D1F2E12C4247F8BCE6E563A440F277037D812DE\\B33A0F4A13945D898C296,4FE342E2FE1A7F9B8EE7\\EB4A7C0F9E162BCE33576B315ECECBB6406837BF51F5)$`
+
+---
+
 ## La cryptographie et Internet
 
 Les communications sur Internet sont protégées par un protocole appelé SSL/TLS. Ce protocole est par exemple la base de HTTPS.
@@ -529,3 +657,4 @@ Les communications sur Internet sont protégées par un protocole appelé SSL/TL
 * Cryptographie:
   * A. J. Menezes, P. C. van Oorschot, and S. A. Vanstone: Handbook of Applied Cryptography
   * Bruce Schneier: Applied Cryptography
+  * Standard For Efficient Cryptography: https://www.secg.org
