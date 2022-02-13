@@ -562,7 +562,7 @@ Imaginons avoir 4 fois plus de passagers et 4 guichets
 
 note: Larson, professeur au MIT, fondateur de la psychologie des files. A cause d'une attente injuste pour acheter un vélo dans un grand magasin ou des gens pouvaient retirer leur achats avant lui (non FIFO)
 
----
+--
 
 ## Les 6 règles de David Maister
 
@@ -575,3 +575,6 @@ note: Larson, professeur au MIT, fondateur de la psychologie des files. A cause 
 
 note: 2. -> temps d'attente pour être assi au restaurant plus difficile que temps pour être servi, 5. -> lorsque FIFO non enforce
 
+---
+
+## Questions ?
