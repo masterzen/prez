@@ -146,6 +146,33 @@ utilisation d'une charte de gris
 
 ---
 
+## Raw vs Jpeg
+
+* Raw
+  * issu directement du capteur (contient la valeur lue par les photosite)
+  * nécessite un "développement" (dématriçage, LUT etc)
+  * gros fichier
+  * peut-être post-traité (changement exposition, etc)
+  * non utilisable directement
+* Jpeg
+  * post-traité par l'appareil
+  * utilisable directement
+  * pas de post-traitement possible
+  * compressé avec pertes
+
+---
+
+## Balance des blancs
+
+<figure>
+![Balance des blancs](resources/white-balance.jpg) <!-- .element width="70%" class="plain" -->
+<figcaption>Différentes balance des blancs</figcaption>
+</figure>
+
+note: le capteur ne voit pas les couleurs, il faut reconstruire les couleurs de l'image pour le spectre visible de l'oeil humain en fonction de la dominante de couleur donnée par l'éclairage. Les appareils proposent des réglages prédéfinis (lumière du jour, éclairage chaud, froid, etc). Ou auto: l'appareil considère que la plus large zone de haute lumière doit être blanche.
+
+---
+
 ## Composition
 
 L'oeil est attiré par certains points et lit les images de gauche à droite, et de haut en bas.
