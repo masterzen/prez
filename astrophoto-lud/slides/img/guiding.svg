@@ -1,0 +1,28 @@
+    <svg width="520" height="280" viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrow4" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#333"/>
+        </marker>
+      </defs>
+
+      <!-- axes -->
+      <line x1="120" y1="140" x2="400" y2="140" stroke="#333" stroke-width="2" marker-end="url(#arrow4)"/>
+      <line x1="260" y1="240" x2="260" y2="40" stroke="#333" stroke-width="2" marker-end="url(#arrow4)"/>
+      <text x="405" y="145" font-family="monospace" font-size="14">RA</text>
+      <text x="266" y="48" font-family="monospace" font-size="14">DEC</text>
+
+      <!-- guide error trace -->
+      <path d="M130,150 C160,130 190,155 220,138 C250,155 280,135 310,148 C340,138 370,145 390,140"
+            fill="none" stroke="#000" stroke-width="2"/>
+      <text x="130" y="122" font-family="monospace" font-size="12">erreur RA (corrigée)</text>
+
+      <path d="M255,210 C265,205 255,200 265,195 C255,190 265,185 258,180"
+            fill="none" stroke="#777" stroke-width="2"/>
+      <text x="280" y="205" font-family="monospace" font-size="12" fill="#555">DEC faible</text>
+
+      <!-- dithering -->
+      <circle cx="165" cy="175" r="3" fill="#000"/>
+      <circle cx="175" cy="185" r="3" fill="#000"/>
+      <circle cx="185" cy="170" r="3" fill="#000"/>
+      <text x="195" y="185" font-family="monospace" font-size="12">dither</text>
+    </svg>

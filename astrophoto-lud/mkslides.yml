@@ -1,0 +1,55 @@
+# Configuration for the generated index page
+index:
+    # Enables or disables the "Documentation built with MkSlides." footer:
+    # boolean
+    enable_footer: false
+
+# Configuration for the slides
+slides:
+    # Charset of the slides: string
+    # (see https://revealjs.com/markdown/#external-markdown)
+    charset: utf-8
+
+    # Theme for syntax highlighting of code fragments on the slides: file path
+    # to CSS file, public url to CSS file, or one of the highlight.js built-in
+    # themes such as `monokai`, `obsidian`, `tokyo-night-dark`, `vs`, ...
+    # (see https://highlightjs.org/examples)
+    highlight_theme: monokai
+
+    # Separator to determine notes of the slide: regexp
+    # (see https://revealjs.com/markdown/#external-markdown)
+    separator_notes: "^[Nn]ote:"
+
+    # Separator to determine end current/begin new vertical slide: regexp
+    # (see https://revealjs.com/markdown/#external-markdown)
+    separator_vertical: ^\r?\n--\r?\n$
+
+    # Separator to determine end current/begin new slide: regexp
+    # (see https://revealjs.com/markdown/#external-markdown)
+    separator: ^\r?\n---\r?\n$
+
+    # Theme of the slides: file path to CSS file, public url to CSS file, or one
+    # of the reveal.js themes such as `black`, `white`, `league`, `solarized`,
+    # `dracula`, ... (see https://revealjs.com/themes/)
+    theme: solarized
+
+    # Title of the slides. If this is set for a slide, it will be used for the
+    # entry in the generated index HTML: string
+    title: Astrophotographie
+
+# Options to be passed to reveal.js: options in yaml format, they will be
+# translated to JSON automatically (see https://revealjs.com/config/)
+revealjs:
+    height: 1080
+    width: 1920
+    transition: fade
+    center: false
+
+# Plugins or additional CSS/JavaScript files for the slides. These are given as
+# a list.
+plugins:
+    - name: RevealMermaid
+      extra_javascript:
+          - https://cdn.jsdelivr.net/npm/reveal.js-mermaid-plugin/plugin/mermaid/mermaid.min.js
+    - extra_javascript:
+          - https://cdn.jsdelivr.net/npm/reveal-plantuml/dist/reveal-plantuml.min.js
