@@ -12,9 +12,9 @@
 
 ## Loi de Murphy (appliquée aux queues)
 
-* loi: _si tu changes de file, celle que tu quittes avancera plus vite que celle dans laquelle tu es_.
-* corrolaire 1: _ta file d'attente est toujours la plus lente_
-* corrolaire 2: _quelque soit la file d'attente que tu rejoins, même la plus courte, ton temps d'attente sera toujours le plus long_
+* loi: _si tu changes de file, celle que tu quittes avance plus vite que celle dans laquelle tu es_.
+* corolaire 1: _ta file d'attente est toujours la plus lente_
+* corolaire 2: _quelque soit la file d'attente que tu rejoins, même la plus courte, ton temps d'attente sera toujours le plus long_
 
 ---
 
@@ -26,8 +26,9 @@
 
 * la salle de bain le matin
 * les bouchons
-* banque, la poste, les caisses de magasin
+* banque, la poste, les caisses de magasins
 * restaurants
+* usine (chaines de montage, réparation, etc)
 * et même au travail (attente de documents, collaboration, travail en cours, etc)
 ...
 
@@ -36,9 +37,8 @@
 ### ainsi que dans les systèmes informatiques
 
 * RAM / CPU / disques durs
-* routers / switchs
-* kernels / logiciel
-...
+* équipements réseaux: routeurs / switchs
+* logiciel: kernel, etc...
 
 --
 
@@ -58,7 +58,6 @@ Branche de la recherche faisant partie des mathématiques appliquées ayant pour
 
 Nous ne parlerons pas:
 
-* de psychologie
 * de mécanique des fluides
 * de dynamique des foules
 * du balking, jockeying et du renoncement
@@ -96,7 +95,7 @@ note: balking: ne pas entrer dans une file car elle semble trop longue, jockeyin
 
 ### Problème
 
-> Combien de lignes d'interconnexion et combien d'opérateurs faut-il sachant le nombre d'abonnés, la fréquence des appels et leur durées moyennes ?
+> Combien de lignes d'interconnexion et combien d'opérateurs faut-il sachant le nombre d'abonnés, la fréquence des appels et leurs durées moyennes ?
 
 Note: article de 1909 "The theory of probabilities and telephone conversations" et plus tard les formules de "perte" d'appel qui furent utilisées partout dans le monde. Certains ingénieurs allant jusqu'à apprendre le danois pour comprendre les articles d'Erlang
 
@@ -123,7 +122,9 @@ avec:
 
 * `$P_b$` probabilité d'appel perdu
 * `$E = {\lambda}h$` charge appliquée
-* `$m$` nombre de resources parallèles (lignes, opérateurs, etc)
+* `$m$` nombre de ressources parallèles (lignes, opérateurs, etc)
+
+note: lambda -> vitesse d'arrivée, h -> temps d'occupation d'une ligne (holding)
 
 --
 
@@ -159,7 +160,7 @@ Pour pouvoir répondre à ces questions:
 * quelle taille va faire la file ?
 * quelle attente vont subir les "clients" ?
 * quel taux d'occupation les "serveurs" vont-ils supporter ?
-* quelle capacité doit on mettre en oeuvre pour un niveau de demande donnée ?
+* quelle capacité doit-on mettre en oeuvre pour un niveau de demande donnée ?
 
 --
 
@@ -171,7 +172,7 @@ La théorie des files d'attente propose des modèles basés sur des assomptions.
 
 ## Modèles
 
-Le problème est peu intuitif (cf Erlang-C) car basé sur des probabilités. 
+Le problème est peu intuitif (cf Erlang-C) car basé sur des probabilités.
 
 Notre intuition humaine est _linéaire_: si le trafic double, le reste doublera pensons-nous ?
 
@@ -217,7 +218,7 @@ note: cas de machines industrielles devant être réparées dans une usine
 ## Anatomie: distribution des arrivées & des temps de services
 
 * l'arrivée est-elle aléatoire ?
-* les arrivées sont-elles indépendentes les unes des autres ?
+* les arrivées sont-elles indépendantes les unes des autres ?
 
 ---
 
@@ -283,9 +284,9 @@ avec:
 * `$\lambda$` moyenne des intervalles d'arrivées des "clients"
 * `$W$` moyenne des temps de service des "clients"
 
-Cette loi ne dépends pas des processus d'arrivées ou de services, mais ne fonctionne que pour un système stable en fonctionnement.
+Cette loi ne dépend pas des processus d'arrivées ou de services, mais ne fonctionne que pour un système stable en fonctionnement.
 
-note: formulée par Little en 1954 et démontrée en 1961. Ultra importante, et très intuitive: Au restaurant, on double le nombre de client arrivant, vous avez 2 fois plus de clients à servir. Si le temps de service double, avec le même vitesse d'arrivée le nombre de client double aussi.
+note: formulée par Little en 1954 et démontrée en 1961. Ultra importante, et très intuitive: Au restaurant, on double le nombre de clients arrivant, vous avez 2 fois plus de clients à servir. Si le temps de service double, avec la même vitesse d'arrivée le nombre de clients double aussi.
 
 --
 
@@ -302,9 +303,10 @@ note: formulée par Little en 1954 et démontrée en 1961. Ultra importante, et 
 ## M/M/1
 
 * le modèle le plus simple, 1 file, 1 serveur
-* arrivées: distribution de Poisson 
-* service: distribution Exponentielle 
-note: poisson=(bon modèle des phénomènes aléatoire naturels, mais suppose un grand échantillon et pas d'interdépendance entre les clietns), exponentielle=(le pendant de Poisson pour les distribution continues)
+* arrivées: distribution de Poisson
+* service: distribution Exponentielle
+
+note: poisson=(bon modèle des phénomènes aléatoire naturels, mais suppose un grand échantillon et pas d'interdépendance entre les clients), exponentielle=(le pendant de Poisson pour les distribution continues)
 
 --
 
@@ -337,8 +339,8 @@ Processus de naissance & mort:
 
 note: utilisé pour l'analyse de population
 1 naissance à la fois, 1 mort à la fois - représente les probabilités des états
-systeme ergodique = proba d'etre dans tel état == temps dans cet état sur longue période
-etat 0 -> pas de clietns
+système ergodique = proba d'être dans tel état == temps dans cet état sur longue période
+etat 0 -> pas de clients
 etat 1 -> 1 client servi
 etat 2 -> 1 client servi 1 attend, etc
 analogie de l'ascenseur
@@ -412,7 +414,7 @@ $$ L_q = \lambda W_q = \frac{\rho^2}{1 - \rho} $$
 
 ## M/M/1 conclusion
 
-Le temps de résidence (normalisé) est proportionel à  
+Le temps de résidence (normalisé) est proportionnel à
 
 `
 $$ \frac{1}{1 - \rho}$$
@@ -504,7 +506,7 @@ $$ W = \frac{\lambda C(c,\rho)}{c\mu - \lambda} + \frac{1}{\mu} $$
 <figcaption>Temps d'attente en fonction de la charge pour c=1,2,16</figcaption>
 </figure>
 
-note: pour c=1, 2, 16, avec plus de serveurs concurrents on peut avoir plus de charge utilse
+note: pour c=1, 2, 16, avec plus de serveurs concurrents on peut avoir plus de charge utile
 
 --
 
@@ -550,10 +552,6 @@ Imaginons avoir 4 fois plus de passagers et 4 guichets
 * Théorie des files d'attente (cours en ligne https://youtu.be/MUgsCmbL9ls)
 
 ---
-
-### Aurais-je menti ?
-
---
 
 ## Un (tout petit) peu de psychologie
 

@@ -17,7 +17,7 @@
 <figcaption>Hansen ball - 1870</figcaption>
 </figure>
 
-note: beaucoup d'invention US/EU dès 1714, puis foison début 19e mais pas de commercialisation, juste des prototypes (souvent appelés tachygraphes/tachytypes). 1850 invention du ruban encreur. Apparition aussi de machine pour le braille. La première commercialisation: 1870 Rasmus Malling-Hansen et sa Writing Ball. 
+note: beaucoup d'invention US/EU dès 1714, puis foison début 19e mais pas de commercialisation, juste des prototypes (souvent appelés tachygraphes/tachytypes). 1850 invention du ruban encreur. Apparition aussi de machines pour le braille. La première commercialisation: 1870 Rasmus Malling-Hansen et sa Writing Ball.
 
 --
 
@@ -97,7 +97,7 @@ note: au cours des 80s, commercialisation du Personnal Computer (PC)
 * matrice d'interrupteurs ("switchs")
 * plaque
 * boitier
-* controleur
+* carte électronique & controleur
 * stabilisateurs & touches
 * optionnellement un leste
 
@@ -150,7 +150,7 @@ Fonctionne comme un interrupteur électrique, mais c'est un petit peu plus que �
 
 ### Buckling Spring
 
-* l'ancestre
+* l'ancêtre
 
 <figure>
 ![Buckling spring](resources/buckling-spring.gif) <!-- .element width="30%" -->
@@ -172,7 +172,7 @@ Fonctionne comme un interrupteur électrique, mais c'est un petit peu plus que �
 
 * 3 types (linéaires, tactiles, clicky)
 * ressorts de differentes forces (couleur), niveaux de déclenchement
-* environ 100+ switchs différents sur le marché
+* environ 250+ switchs différents sur le marché
 
 ![MX Clear](resources/mx-clear-switch.jpg) <!-- .element width="50%" -->
 
@@ -349,6 +349,20 @@ mais soucis de touches fantômes
 
 ![anti-ghosting](resources/anti-ghosting-matrix.png) <!-- .element width="65%" -->
 
+--
+
+## Protocole USB-HID
+
+* le controleur envoie des codes de touches dans un "rapport" émis sur le bus USB
+* le système d'exploitation reçoit le rapport et "interprête" la touche en fonction de la disposition
+
+--
+
+## Protocole USB-HID suite
+
+* `G` ou `g` produit le même code, la distinction se fait si CapsLock ou Shift appuyés
+* sur un clavier azerty, `A` a le même code que le `Q` sur un clavier qwerty :)
+
 ---
 
 # Des claviers variés!
@@ -477,7 +491,7 @@ note:
 
 --
 
-## Azerty NF 271
+## Azerty NF Z71-300
 
 <figure>
 ![bepo](resources/Azerty_NFZ71-300.png) <!-- .element width="100%" -->
