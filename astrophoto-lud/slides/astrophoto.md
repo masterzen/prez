@@ -305,6 +305,15 @@ $$
 
 ---
 
+## Filtres "narrowband" & pollution lumineuse
+
+<figure>
+<img src="./img/narrowband-skydome.jpg" width="45%"/>
+</figure>
+
+
+---
+
 ## Roue à filtre
 
 <figure>
